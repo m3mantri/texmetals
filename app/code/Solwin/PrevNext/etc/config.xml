@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+
+Solwin Infotech
+Solwin Previous Next Products Extension
+
+@category   Solwin
+@package    Solwin_PrevNext
+@copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+@license    https://www.solwininfotech.com/magento-extension-license/ 
+
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <prevnextsection>
+            <prevnextgroup>
+                <active>1</active>
+                <loopproducts>1</loopproducts>
+                <displaythumb>0</displaythumb>
+                <thumbwidth>60</thumbwidth>
+                <thumbheight>60</thumbheight>
+                <displayname>1</displayname>
+                <truncate>50</truncate>
+                <sortbyproduct>0</sortbyproduct>
+                <orderbyproduct>0</orderbyproduct>
+                <layout>1</layout>
+            </prevnextgroup>
+            <prevsettings>
+                <display>1</display>
+                <prevtext>Prev</prevtext>
+                <previmage></previmage>
+            </prevsettings>
+            <nextsettings>
+                <display>1</display>
+                <nexttext>Next</nexttext>
+                <nextimage></nextimage>
+            </nextsettings>
+            <backto>
+                <enablebackto>1</enablebackto>
+                <display>1</display>
+                <backtotext>Back</backtotext>
+                <backtoimage></backtoimage>
+                <displaythumb>0</displaythumb>
+            </backto>
+        </prevnextsection>
+    </default>
+</config>

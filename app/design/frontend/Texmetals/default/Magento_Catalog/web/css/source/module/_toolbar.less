@@ -1,0 +1,285 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@toolbar-mode-icon-font-size: 16px;
+@toolbar-background: transparent;
+@toolbar-element-background: @color-gray94;
+@pager-action__background: @toolbar-element-background;
+@pager-action__hover__background: darken(@toolbar-element-background, 7%);
+@pager__font-weight: @font-weight__bold;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .page-products {
+        .columns {
+            padding-top: 60px;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .toolbar {
+        &:extend(.abs-add-clearfix all);
+        margin-bottom: @indent__l;
+        text-align: center;
+
+        &-amount {
+            display: none;
+            left: 0;
+            line-height: @toolbar-mode-icon-font-size + 2;
+            margin: 0;
+            padding: 7px 0;
+            position: absolute;
+            text-align: left;
+            top: 0;
+            vertical-align: middle;
+
+            .products.wrapper ~ .toolbar & {
+                display: none;
+            }
+        }
+
+        .page-with-filter & {
+            &-amount {
+                position: static;
+            }
+        }
+
+        &-products {
+            .lib-css(background-color, @toolbar-background);
+            margin-bottom: 0;
+
+            .pages {
+                float: left;
+
+                .products.wrapper ~ & {
+                    display: none;
+                }
+            }
+        }
+
+        .pages {
+            margin-bottom: @indent__m;
+
+            .item {
+                line-height: 20px;
+            }
+
+            .action {
+                background: #cc4400;
+                border: 1px solid #cc4400;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0;
+
+                &.next,
+                &.previous {
+                    margin-left: 5px;
+
+                    &:before {
+                        .lib-font-size(20);
+                        color: @color-white;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .sorter {
+        float: right;
+
+        .page-products & {
+            position: absolute;
+            right: @indent__s;
+            top: 0;
+            z-index: 1;
+        }
+
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+
+        &-options {
+            background: none;
+            margin: 0 @indent__xs 0 7px;
+            width: auto;
+        }
+
+        &-action {
+            .lib-icon-font(
+            @icon-arrow-up,
+            @_icon-font-size: 16px,
+            @_icon-font-color: @header-icons-color,
+            @_icon-font-color-hover: @header-icons-color-hover
+            );
+            .lib-icon-text-hide();
+
+            &.sort-desc:before {
+                content: @icon-arrow-down;
+            }
+        }
+    }
+
+    .modes {
+        display: block;
+    }
+
+    .limiter {
+        display: none;
+
+        &-options {
+            margin: 0 5px 0 7px;
+            width: auto;
+        }
+
+        &-label {
+            font-weight: 400;
+        }
+
+        .page-products .toolbar & {
+            display: none;
+        }
+
+        .control {
+            display: inline-block;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .toolbar-products {
+        margin-bottom: 0;
+    }
+    .pages-item-previous,
+    .pages-item-next {
+        position: static;
+    }
+
+    .pages {
+        .pages-items {
+            padding: 0;
+        }
+    }
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .sorter {
+        .sorter-options {
+            padding-right: 10px;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-products {
+        .columns {
+            padding-top: 0;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .toolbar-amount {
+        float: left;
+        position: static;
+    }
+
+    .toolbar {
+        .products.wrapper ~ & .pages {
+            float: left;
+            margin-bottom: 0;
+        }
+    }
+
+    .modes {
+        float: left;
+        margin-right: @indent__base;
+
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+    }
+
+    .modes-label {
+        &:extend(.abs-visually-hidden-desktop all);
+    }
+
+    .modes-mode {
+        .lib-css(background-color, @color-white);
+        .lib-css(box-shadow, @button__shadow);
+        .lib-css(color, @text__color__muted);
+        border: 1px solid #cc4400;
+        border-right: 0;
+        float: left;
+        font-weight: @font-weight__regular;
+        line-height: 1;
+        padding: 7px 10px;
+        text-align: center;
+
+        .modes-label + & {
+            border-radius: 0;
+        }
+
+        &:hover {
+            .lib-css(color, @text__color__muted);
+            background: darken(@toolbar-element-background, 2%);
+        }
+
+        &:last-child {
+            background: @color-white;
+            border: 1px solid #cc4400;
+            border-radius: 0;
+        }
+
+        &.active {
+            box-shadow: none;
+            background: #cc4400;
+            color: @color-white;
+
+            &:before {
+                color: @color-white !important;
+            }
+        }
+
+        &:before {
+            color: #cc4400 !important;
+        }
+
+        .lib-icon-font(
+        @icon-grid,
+        @_icon-font-size: @toolbar-mode-icon-font-size,
+        @_icon-font-text-hide: true,
+        @_icon-font-color: @text__color__muted,
+        @_icon-font-color-hover: @text__color__muted
+        );
+    }
+
+    .sorter {
+        .page-products & {
+            position: static;
+        }
+    }
+
+    .mode-list {
+        &:before {
+            content: @icon-list;
+            color: @color-white;
+        }
+    }
+
+}

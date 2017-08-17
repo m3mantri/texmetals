@@ -1,0 +1,14 @@
+<div class="amasty-extrafee-option field choice item" data-bind="foreach: getOptions()">
+    <input type="checkbox" class="radio" data-bind="
+        checked: $parent.currentValue,
+        attr: {
+            value: index,
+            id: $parent.uid + '_' + index,
+            name: $parent.name + '.extrafee.'
+        }
+        ">
+    <label class="label" data-bind="attr: {for: $parent.uid + '_' + index}">
+        <!-- ko text: $data.label --><!-- /ko -->
+        <!-- ko text: $parent.getFormattedPrice($data.price) --><!-- /ko -->
+    </label>
+</div>

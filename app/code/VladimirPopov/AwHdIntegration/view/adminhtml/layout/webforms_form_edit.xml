@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <referenceBlock name="webforms_form_edit_tabs">
+                <block class="VladimirPopov\AwHdIntegration\Block\Adminhtml\Form\Edit\Tabs\Helpdesk"
+                       name="webforms_form_edit_tab_awhelpdesk"/>
+                <action method="addTabAfter">
+                    <argument name="name" xsi:type="string">awhelpdesk_section</argument>
+                    <argument name="block" xsi:type="string">webforms_form_edit_tab_awhelpdesk</argument>
+                    <argument name="afterTabId" xsi:type="string">print_section</argument>
+                </action>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

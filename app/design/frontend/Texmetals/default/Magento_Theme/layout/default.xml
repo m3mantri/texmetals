@@ -1,0 +1,41 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceContainer name="after.body.start">
+            <!-- Texmetals Custom Javascript/jQuery codes -->
+            <block class="Magento\Theme\Block\Html\Topmenu" name="texmetals.js" template="page/js/jquery.main.phtml" />
+        </referenceContainer>
+
+        <!-- Logo -->
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_img_width" xsi:type="number">175</argument> 
+                <argument name="logo_img_height" xsi:type="number">47</argument>
+            </arguments>
+        </referenceBlock>
+
+        <!-- Move Block -->
+        <move element="logo" destination="header.panel" before="-"/>
+        <move element="navigation.sections" destination="header.panel" after="logo"/>
+        <move element="minicart" destination="header.panel" after="navigation.sections"/>
+
+        <!-- Remove Block -->
+        <referenceBlock name="top.search" remove="true" />
+        <referenceBlock name="header-wrapper" remove="true" />
+        <!-- <referenceBlock name="breadcrumbs" remove="true" /> -->
+        <!-- Remove block Footer Links -->
+        <referenceBlock name="footer_links" remove="true" />
+        <!-- Remove block newsletter -->
+<!--         <referenceBlock name="form.subscribe" remove="true" />
+ -->
+
+        <referenceContainer name="footer">
+            <block class="Magento\Cms\Block\Block" name="footer.menu">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_menu</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>     

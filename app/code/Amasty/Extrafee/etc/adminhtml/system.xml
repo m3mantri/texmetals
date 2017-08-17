@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
+ * @package Amasty_Extrafee
+ */
+-->
+<!--
+/**
+ * Copyright © 2015 Amasty. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_extrafee" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+            <resource>Amasty_Extrafee::config</resource>
+            <class>separator-top</class>
+            <label>Extra Fee</label>
+            <tab>amasty</tab>
+            <group id="calculation" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Calculation</label>
+                <field id="discount_in_subtotal" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Include discount in subtotal</label>
+                    <source_model>Amasty\Extrafee\Model\Config\Source\Excludeinclude</source_model>
+                </field>
+                <field id="tax_in_subtotal" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Include tax in subtotal </label>
+                    <source_model>Amasty\Extrafee\Model\Config\Source\Excludeinclude</source_model>
+                </field>
+                <field id="shipping_in_subtotal" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Include shipping in subtotal </label>
+                    <source_model>Amasty\Extrafee\Model\Config\Source\Excludeinclude</source_model>
+                </field>
+            </group>
+            <group id="tax" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Tax</label>
+                <field id="tax_class" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Tax Class</label>
+                    <source_model>Magento\Tax\Model\TaxClass\Source\Product</source_model>
+                </field>
+            </group>
+            <group id="frontend" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Frontend</label>
+                <field id="cart" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show On Cart Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

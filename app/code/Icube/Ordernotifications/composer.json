@@ -1,0 +1,23 @@
+{
+    "name": "icube/ordernotifications",
+    "description": "",
+    "license": [
+        "OSL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Derrick Heesbeen",
+            "email": "derrick@icube.nl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Icube\\Ordernotifications\\": ""
+        }
+    }
+}

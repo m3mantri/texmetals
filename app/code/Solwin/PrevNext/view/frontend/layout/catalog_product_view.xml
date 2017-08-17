@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+
+Solwin Infotech
+Solwin Previous Next Products Extension
+
+@category   Solwin
+@package    Solwin_PrevNext
+@copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+@license    https://www.solwininfotech.com/magento-extension-license/ 
+
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Solwin_PrevNext::css/prevnext.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content"> 
+            <container before="product.info.main" name="product.nav.block" label="Product nav contaiber" htmlTag="div" htmlClass="product-nav-block">
+                <block class="Solwin\PrevNext\Block\PrevNext" name="PrevNext" template="Solwin_PrevNext::prevnext.phtml"/>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

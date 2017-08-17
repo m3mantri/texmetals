@@ -1,0 +1,22 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<!-- Google Font -->
+		<link href="//fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" />
+
+		<!-- LightSlider Library CSS -->
+		<css src="js/lib/lightslider/css/lightslider.css"/>
+		<!-- BXSlider Library CSS -->
+		<css src="js/lib/bxslider/css/jquery.bxslider.min.css"/>
+
+		<css src="css/bootstrap.min.css" />​
+		<css src="css/parallex_content.css" />​
+		<css src="css/megatron-template.css" />​
+		<css src="css/icomoon.css" />​
+		<css src="js/lib/fancybox/css/jquery.fancybox.css" />
+		<css src="css/added.css" />​
+		<css src="css/custom_changes.css" />​
+		<css src="css/payment-page.css" />​
+		<css src="css/sss.css" />​
+		<css src="css/main.css" />​
+	</head>
+</page>

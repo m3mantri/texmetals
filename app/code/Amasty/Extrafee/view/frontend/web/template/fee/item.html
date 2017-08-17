@@ -1,0 +1,11 @@
+<dl class="amasty-extrafee-fees" visible="visible">
+    <dt class="amasty-extrafee-title">
+        <span data-bind="text: label"></span>
+    </dt>
+    <dd class="amasty-extrafee-options item-options">
+        <!-- ko if: description -->
+        <div class="amasty-extrafee-description" data-bind="text: description"></div>
+        <!-- /ko -->
+        <render args="elementTmpl"/>
+    </dd>
+</dl>

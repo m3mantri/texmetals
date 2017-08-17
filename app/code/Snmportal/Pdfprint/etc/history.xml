@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config >
+    <version v="2.1.1">
+        <item>
+            Change Import StoreId to null
+        </item>
+    </version>
+</config>

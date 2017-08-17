@@ -1,0 +1,25 @@
+<?php $comment = $this->getOrderComment(); ?>
+<section class="admin__page-section">
+    <div id="order-comment">
+        <div class="admin__page-section-title">
+            <span class="title"><?php echo __("Order Comment") ?></span>
+        </div>
+        <?php if ($comment != ''): ?>
+            <p><?php echo __("<b>Comment:</b>") ?><?php echo $block->escapeHtml($comment); ?></p>
+        <?php else: ?>
+            <p><?php echo __("There is no comment available") ?></p>
+        <?php endif; ?>
+    </div>
+</section>
+<div class="popup popup-loading" style="display:none;">
+    <div class="popup-inner"><?php echo __('Please wait...'); ?></div>
+</div>
+<script type="text/javascript">
+    require(
+        ['jquery'],
+        function ($) {
+            var element = jQuery('#order-comment').detach();
+            jQuery('.order-view-account-information').append(element);
+        }
+    );
+</script>

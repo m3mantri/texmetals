@@ -1,0 +1,11 @@
+<!-- ko if: isDisplayed() -->
+<tr class="totals amasty-extrafee excl">
+    <th class="mark" scope="row">
+        <span class="label" data-bind="i18n: label"></span>
+        <span class="value" data-bind="text: getMethods()"></span>
+    </th>
+    <td class="amount">
+        <span class="price" data-bind="text: getValue()"></span>
+    </td>
+</tr>
+<!-- /ko -->

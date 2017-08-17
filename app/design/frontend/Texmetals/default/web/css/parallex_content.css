@@ -1,0 +1,172 @@
+/* ============================================================
+  SECTIONS
+============================================================ */
+section.module:last-child {
+  margin-bottom: 0;
+}
+section.module h2 {
+/*  margin-bottom: 40px;*/
+/*  font-family: "Roboto Slab", serif;
+  font-size: 30px;*/
+margin-top: 20px;
+padding-bottom: 15px;
+}
+section.module p {
+  margin-bottom: 20px;
+/*  font-size: 16px;
+  font-weight: 300;*/
+}
+section.module p:last-child {
+  margin-bottom: 0;
+}
+section.module.content {
+  padding: 50px 0;
+}
+section.module.parallax {
+  height: 500px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+section.module.parallax h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 48px;
+  line-height: 500px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+section.module.parallax-1 {
+  background-image: url("../Magento_Theme/images/cellphone.jpg");
+}
+section.module.parallax-2 {
+  background-image: url("../Magento_Theme/images/deskphone.jpg");
+}
+section.module.parallax-3 {
+  background-image: url("../Magento_Theme/images/metalsmix.jpg");
+}
+section.module.parallax-4 {
+  background-image: url("../Magento_Theme/images/longerplane.jpg");
+}
+section.module.parallax-5 {
+  background-image: url("../Magento_Theme/images/metals2.jpg");
+}
+section.module.parallax-6 {
+  background-image: url("../Magento_Theme/images/shinertown.jpg");
+}
+section.module.parallax-7 {
+  background-image: url("../Magento_Theme/images/shinertown-1.jpg");
+}
+section.module.parallax-8 {
+  background-image: url("../Magento_Theme/images/check.jpg");
+}
+.sellback{ background-image: url("../Magento_Theme/images/extended-gun.jpg"); min-height: 660px; margin-bottom: 40px !important;background-position: center bottom; background-size: cover;}
+@media all and (min-width: 600px) {
+  section.module h2 {
+    font-size: 30px;
+  }
+  section.module p {
+    font-size: 17px;
+  }
+  section.module.parallax h1 {
+    font-size: 96px;
+  }
+}
+@media all and (min-width: 960px) {
+  section.module.parallax h1 {
+    font-size: 160px;
+  }
+/*  section.module.parallax-4{ background-size: cover !important;}*/
+ 
+}
+@media(max-width:767px) {
+.full-width{width:100%;}
+section.module.parallax-4{ background-size: contain !important;}
+}
+@media(max-width:1280px) and (max-height:600px) {
+    section.module.parallax-4{ background-size: cover !important;}
+}
+
+ .arrow-down-parallex{ background: url(../Magento_Theme/images/thin1.png); width: 32px; height:17px; display: block; margin: 0 auto;}
+// .control{margin:70px 0 0;}
+.module .icon-phone-4,.icon-credit,.icon-coin,.icon-clipboard-2,.icon-airplane-2,.icon-file,.icon-file,.icon-locked{font-size:135px;color:#000;position:relative;text-align: center;}
+.module .icon-phone-4{top:60px;}
+.module .icon-credit{top:93px; font-size: 125px;}
+.module .icon-Texaslogo{font-size:154px;}
+.module .icon-coin{top:116px;}
+.module .icon-clipboard-2{top:122px;}
+.module .icon-airplane-2{top:64px;font-size:115px;}
+.module .icon-file{top:113px;}
+.module .icon-locked{top:118px;}
+.module .icon-Texaslogo{top:85px;}
+
+.whitebg{background:#fff; padding: 10px 20px 55px; margin-top: 50px; border: 2px solid #ccc;}
+@media (min-width: 320px) and (max-width: 480px) {
+    .parallax-1,.parallax-2,.parallax-3,.parallax-4,.parallax-5,.parallax-6,.parallax-7,.parallax-8{
+            // width:480px !important;
+    }
+   .parallax{
+        background-position: 50% 50% !important;
+        background-attachment: initial !important;
+        background-size: cover !important;
+    }
+   section.module.parallax-1 {
+  background-image: url("../Magento_Theme/images/cellphone-small.jpg");
+}
+section.module.parallax-2 {
+  background-image: url("../Magento_Theme/images/deskphone-small.jpg");
+}
+section.module.parallax-3 {
+  background-image: url("../Magento_Theme/images/metalsmix-small.jpg");
+}
+section.module.parallax-4 {
+  background-image: url("../Magento_Theme/images/longerplane-small.jpg");
+  height:250px;
+
+}
+section.module.parallax-5 {
+  background-image: url("../Magento_Theme/images/metals2-small.jpg");
+}
+section.module.parallax-6 {
+  background-image: url("../Magento_Theme/images/shinertown-small.jpg");
+}
+section.module.parallax-7 {
+  background-image: url("../Magento_Theme/images/shinertown-1-small.jpg");
+}
+section.module.parallax-8 {
+  background-image: url("../Magento_Theme/images/check-small.jpg");
+}
+}
+.order-processing-image{
+ background-image:url("../Magento_Theme/images/how-to-order.jpg");
+ background-repeat: no-repeat;
+ background-position: center;
+ min-height: 450px;
+ margin-top: 6%; background-size: contain; }
+ 
+ section.module.parallax h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 48px;
+  line-height: normal;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+section.module.parallax h4 {
+    text-align: center;
+    top:0;
+    color: #fff;
+    line-height: 2.5;
+}
+
+.vid {
+    line-height: 130px !important;
+    position: relative;
+    top: 30%;
+}

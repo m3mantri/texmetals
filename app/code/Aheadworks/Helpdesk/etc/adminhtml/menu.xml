@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Aheadworks_Helpdesk::helpdesk_home" title="Help Desk Ultimate by aheadWorks"  module="Magento_Customer" sortOrder="100" parent="Magento_Customer::customer" resource="Aheadworks_Helpdesk::home" />
+        
+        <!-- custom -->
+        <add id="Aheadworks_Helpdesk::limitorder" title="Limit Order"  module="Aheadworks_Helpdesk" sortOrder="1" parent="Aheadworks_Helpdesk::helpdesk_home" action="aw_helpdesk/limitorder/index" resource="Aheadworks_Helpdesk::limitorder"/>
+        <add id="Aheadworks_Helpdesk::sellback" title="Sell Back"  module="Aheadworks_Helpdesk" sortOrder="1" parent="Aheadworks_Helpdesk::helpdesk_home" action="aw_helpdesk/sellback/index" resource="Aheadworks_Helpdesk::sellback"/>
+        <add id="Aheadworks_Helpdesk::sellbacklimitorder" title="Sell Back Limit Order"  module="Aheadworks_Helpdesk" sortOrder="1" parent="Aheadworks_Helpdesk::helpdesk_home" action="aw_helpdesk/sellbacklimitorder/index" resource="Aheadworks_Helpdesk::sellbacklimitorder"/>
+
+        <add id="Aheadworks_Helpdesk::tickets" title="Tickets"  module="Aheadworks_Helpdesk" sortOrder="1" parent="Aheadworks_Helpdesk::helpdesk_home" action="aw_helpdesk/ticket/index" resource="Aheadworks_Helpdesk::tickets"/>
+        <add id="Aheadworks_Helpdesk::automation" title="Automations"  module="Aheadworks_Helpdesk" sortOrder="2" parent="Aheadworks_Helpdesk::helpdesk_home" action="aw_helpdesk/automation/index" resource="Aheadworks_Helpdesk::automation"/>
+        <add id="Aheadworks_Helpdesk::departments" title="Departments"  module="Aheadworks_Helpdesk" sortOrder="3" parent="Aheadworks_Helpdesk::helpdesk_home" action="aw_helpdesk/department/index" resource="Aheadworks_Helpdesk::departments"/>
+    </menu>
+</config>

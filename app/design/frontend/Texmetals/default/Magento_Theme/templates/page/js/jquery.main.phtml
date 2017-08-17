@@ -1,0 +1,36 @@
+<?php  
+/*
+ * Initialize Javascript Main JS for : Plugin, Library, and Widget
+ * Author: I.CUBE
+ * 
+ */
+?>
+<script>
+    require([
+        'jquery',
+        'texmetals'], function ($) {
+        /* TODO : Custom jQ goes here */
+        $(document).texmetals();
+    });
+</script>
+
+<!-- check user login or not -->
+<?php 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('Magento\Customer\Model\Session');
+?>
+<?php if ($customerSession->isLoggedIn()): ?>
+    <script type="text/javascript">
+    	require([
+    		'jquery'], function ($) {
+    			$('.cms-page-view').addClass('logged-in');
+    	});
+    </script>
+<?php else: ?>
+	<script type="text/javascript">
+    	require([
+    		'jquery'], function ($) {
+		    	$('.cms-page-view').addClass('logged-out');
+    	});
+    </script>
+<?php endif ?>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
+ * @package Amasty_Extrafee
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_Extrafee::fee" title="Extra Fee" translate="title" module="Amasty_Extrafee" sortOrder="25" parent="Magento_Backend::stores" resource="Amasty_Extrafee::fee"/>
+        <add id="Amasty_Extrafee::fee_manage" title="Fees" translate="title" module="Amasty_Extrafee" sortOrder="10" parent="Amasty_Extrafee::fee" action="amasty_extrafee/index/" resource="Amasty_Extrafee::manage"/>
+    </menu>
+</config>

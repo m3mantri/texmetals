@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+
+Solwin Infotech
+Solwin Previous Next Products Extension
+
+@category   Solwin
+@package    Solwin_PrevNext
+@copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+@license    https://www.solwininfotech.com/magento-extension-license/ 
+
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Solwin_PrevNext::view" title="Product Previous Next" module="Solwin_PrevNext" sortOrder="5" parent="Solwin_PrevNext::extension" resource="Solwin_PrevNext::view" />
+        <add id="Solwin_PrevNext::prevnextsection" title="Configuration" module="Solwin_PrevNext" sortOrder="10" parent="Solwin_PrevNext::view" action="adminhtml/system_config/edit/section/prevnextsection" resource="Solwin_PrevNext::prevnextsection"/>
+        <add id="Solwin_PrevNext::extension" title="Solwin" module="Solwin_PrevNext" sortOrder="65" resource="Solwin_PrevNext::extension" />
+    </menu>
+</config>

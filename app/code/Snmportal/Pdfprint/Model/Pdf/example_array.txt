@@ -1,0 +1,283 @@
+Array
+(
+    [cols] => Array
+        (
+            [0] => Array
+                (
+                    [class] => col name
+                    [value] => Product Name
+                    [valueHTML] => Product Name
+                )
+
+            [1] => Array
+                (
+                    [class] => col sku
+                    [value] => SKU
+                    [valueHTML] => SKU
+                )
+
+            [2] => Array
+                (
+                    [class] => col price
+                    [value] => Price
+                    [valueHTML] => Price
+                )
+
+            [3] => Array
+                (
+                    [class] => col qty
+                    [value] => Qty Invoiced
+                    [valueHTML] => Qty Invoiced
+                )
+
+            [4] => Array
+                (
+                    [class] => col subtotal
+                    [value] => Subtotal
+                    [valueHTML] => Subtotal
+                )
+
+        )
+
+    [rows] => Array
+        (
+            [0] => Array
+                (
+                    [class] =>
+                    [cols] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [class] => col name
+                                    [value] => pdfPublication Editor
+                    Magento-Edition
+                                            Community Edition
+                                                        Installation
+                                            No Need Installation
+                                                        Admin Store-URL: (www.domain.com)
+                                            www.test.de
+                                                Links
+                                    pdfPublication 1.9.3.1
+                                    pdfPublication Basic 1.9.4
+                                    pdfPublication Basic 1.9.5
+                                    [valueHTML] => <strong class="product name product-item-name">pdfPublication Editor</strong>
+                    <dl class="item-options links">
+<dt>Magento-Edition</dt>
+                                            <dd>Community Edition</dd>
+                                                        <dt>Installation</dt>
+                                            <dd>No Need Installation</dd>
+                                                        <dt>Admin Store-URL: (www.domain.com)</dt>
+                                            <dd>www.test.de</dd>
+                                                </dl>
+<dl class="item-options links">
+<dt>Links</dt>
+                                    <dd>pdfPublication 1.9.3.1</dd>
+                                    <dd>pdfPublication Basic 1.9.4</dd>
+                                    <dd>pdfPublication Basic 1.9.5</dd>
+                            </dl>
+                                )
+
+                            [1] => Array
+                                (
+                                    [class] => col sku
+                                    [value] => snm-publication-001
+                                    [valueHTML] => snm-publication-001
+                                )
+
+                            [2] => Array
+                                (
+                                    [class] => col price
+                                    [value] => 177,31Â â¬
+
+
+
+
+            149,00Â â¬
+                                    [valueHTML] => <span class="price-including-tax" data-label="Incl. Tax">
+                <span class="cart-price">
+            <span class="price">177,31Â â¬</span>        </span>
+    </span>
+
+    <span class="price-excluding-tax" data-label="Excl. Tax">
+        <span class="cart-price">
+            <span class="price">149,00Â â¬</span>        </span>
+    </span>
+                                )
+
+                            [3] => Array
+                                (
+                                    [class] => col qty
+                                    [value] => 1
+                                    [valueHTML] => <span class="qty summary" data-label="Qty Invoiced">1</span>
+                                )
+
+                            [4] => Array
+                                (
+                                    [class] => col subtotal
+                                    [value] => 177,31Â â¬
+
+
+
+
+            149,00Â â¬
+                                    [valueHTML] => <span class="price-including-tax" data-label="Incl. Tax">
+        <span class="cart-price">
+            <span class="price">177,31Â â¬</span>        </span>
+    </span>
+
+    <span class="price-excluding-tax" data-label="Excl. Tax">
+        <span class="cart-price">
+            <span class="price">149,00Â â¬</span>        </span>
+    </span>
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [totals] => Array
+        (
+            [0] => Array
+                (
+                    [class] => subtotal_excl
+                    [cols] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [class] => mark
+                                    [value] => Subtotal (Excl.Tax)
+                                    [valueHTML] => Subtotal (Excl.Tax)
+                                )
+
+                            [1] => Array
+                                (
+                                    [class] => amount
+                                    [value] => 149,00Â â¬
+                                    [valueHTML] => <span class="price">149,00Â â¬</span>
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [class] => subtotal_incl
+                    [cols] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [class] => mark
+                                    [value] => Subtotal (Incl.Tax)
+                                    [valueHTML] => Subtotal (Incl.Tax)
+                                )
+
+                            [1] => Array
+                                (
+                                    [class] => amount
+                                    [value] => 177,31Â â¬
+                                    [valueHTML] => <span class="price">177,31Â â¬</span>
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [class] => grand_total
+                    [cols] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [class] => mark
+                                    [value] => Grand Total (Excl.Tax)
+                                    [valueHTML] => <strong>Grand Total (Excl.Tax)</strong>
+                                )
+
+                            [1] => Array
+                                (
+                                    [class] => amount
+                                    [value] => 149,00Â â¬
+                                    [valueHTML] => <strong><span class="price">149,00Â â¬</span></strong>
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [class] => totals tax details details-1
+                    [cols] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [class] => mark
+                                    [value] => USt.                                            (19%)
+                                    [valueHTML] => USt.                                            (19%)
+                                        <br>
+                                )
+
+                            [1] => Array
+                                (
+                                    [class] => amount
+                                    [value] => 28,31Â â¬
+                                    [valueHTML] => <span class="price">28,31Â â¬</span>
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [class] => totals-tax-summary
+                    [cols] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [class] => mark
+                                    [value] => Tax
+                                    [valueHTML] => <div class="detailed">Tax</div>
+                                )
+
+                            [1] => Array
+                                (
+                                    [class] => amount
+                                    [value] => 28,31Â â¬
+                                    [valueHTML] => <span class="price">28,31Â â¬</span>
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [class] => grand_total_incl
+                    [cols] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [class] => mark
+                                    [value] => Grand Total (Incl.Tax)
+                                    [valueHTML] => <strong>Grand Total (Incl.Tax)</strong>
+                                )
+
+                            [1] => Array
+                                (
+                                    [class] => amount
+                                    [value] => 177,31Â â¬
+                                    [valueHTML] => <strong><span class="price">177,31Â â¬</span></strong>
+                                )
+
+                        )
+
+                )
+
+        )
+
+)

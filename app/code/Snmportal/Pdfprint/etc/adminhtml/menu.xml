@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <update id="Snmportal_Base::topmenu" title="SNM-PORTAL" sortOrder="60" module="Snmportal_Pdfprint"
+                resource="Snmportal_Base::base"/>
+        <add id="Snmportal_Pdfprint::base" title="pdfPRINT" module="Snmportal_Pdfprint" sortOrder="1"
+             parent="Snmportal_Base::topmenu"
+             resource="Snmportal_Pdfprint::base"
+        />
+        <add id="Snmportal_Pdfprint::template" title="Template" module="Snmportal_Pdfprint" sortOrder="11" parent="Snmportal_Pdfprint::base"
+             action="snmpdfprint/template"
+             resource="Snmportal_Pdfprint::template"/>
+        <add id="Snmportal_Pdfprint::settings" title="Settings" module="Snmportal_Pdfprint" sortOrder="12"
+             parent="Snmportal_Pdfprint::base"
+             action="adminhtml/system_config/edit/section/snmportal_pdfprint"
+             resource="Snmportal_Pdfprint::config_pdfprint"/>
+
+    </menu>
+
+</config>

@@ -1,0 +1,510 @@
+<?php
+/**
+ * Solwin Infotech
+ * Solwin Previous Next Products Extension
+ *
+ * @category   Solwin
+ * @package    Solwin_PrevNext
+ * @copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+ * @license    https://www.solwininfotech.com/magento-extension-license/ 
+ */
+?>
+<?php
+$helper = $this->helper('Solwin\PrevNext\Helper\Data');
+
+$_prev = $helper->getPreviousProduct();
+$_next = $helper->getNextProduct();
+
+/*
+ * Initializing variables
+ */
+$nextimg = $previmg = $nextlink = $prevlink = $catthumbimg = "";
+
+$imgurl = $this->getBaseUrl() . 'pub/media/';
+
+/*
+ * Admin config
+ */
+$enable_ext = $helper->getConfig('prevnextsection/prevnextgroup/active');
+$thumb = $helper->getConfig('prevnextsection/prevnextgroup/displaythumb');
+$thumbwidth = $helper->getConfig('prevnextsection/prevnextgroup/thumbwidth');
+$thumbheight = $helper->getConfig('prevnextsection/prevnextgroup/thumbheight');
+$displayname = $helper->getConfig('prevnextsection/prevnextgroup/displayname');
+$truncate = $helper->getConfig('prevnextsection/prevnextgroup/truncate');
+
+/*
+ * Previous arrow settings
+ */
+$prevtext = $helper->getConfig('prevnextsection/prevsettings/prevtext');
+$prevtextimg = $helper->getConfig('prevnextsection/prevsettings/display');
+$prevsrc = $helper->getConfig('prevnextsection/prevsettings/previmage');
+
+/*
+ * Next arrow settings
+ */
+$nexttext = $helper->getConfig('prevnextsection/nextsettings/nexttext');
+$nexttextimg = $helper->getConfig('prevnextsection/nextsettings/display');
+$nextsrc = $helper->getConfig('prevnextsection/nextsettings/nextimage');
+
+/*
+ * Back button settings
+ */
+$enablebackto = $helper->getConfig('prevnextsection/backto/enablebackto');
+$backtotext = $helper->getConfig('prevnextsection/backto/backtotext');
+$backtotextimg = $helper->getConfig('prevnextsection/backto/display');
+$backimgsrc = $helper->getConfig('prevnextsection/backto/backtoimage');
+$displaythumb = $helper->getConfig('prevnextsection/backto/displaythumb');
+$displayCategoryName = $helper->getConfig('prevnextsection/backto/displaycategoryname');
+
+
+/*
+ * Layout
+ */
+$layout = $helper->getConfig('prevnextsection/prevnextgroup/layout');
+?>
+<?php if ($enable_ext) { ?>
+    <?php if ($layout == 2) { ?>
+        <?php if ($_prev || $_next) { ?>
+            <div class="prev-next">
+                <div class="pn-nav-block element-left">
+                    <div class="prev-btn-block">
+                        <?php
+                        if ($_prev) {
+                            foreach ($_prev as $_prev) {
+                                /*
+                                 * Get thumbanil image
+                                 */
+                                if ($thumb) {
+                                    if ($_prev->getImage()) {
+                                        $prevpath = $imgurl . 'catalog/product' . $_prev->getImage();
+                                    } else {
+                                        $prevpath = $this->helper('Solwin\Printpage\Helper\Data')->getPlaceHolderImg();
+                                    }
+                                    $previmg = '<img class="thumb" src="' . $prevpath . '" width = "' . $thumbwidth . '" height="' . $thumbheight . '" />';
+                                }
+                                /*
+                                 * Get name
+                                 */
+                                if ($displayname) {
+                                    $prename = $this->escapeHtml($_prev->getName());
+                                    if ($truncate != "" && strlen($prename) > $truncate && $truncate < 50) {
+                                        $prename = substr($prename, 0, $truncate) . '...';
+                                    }
+                                    $prevlink = '<a rel = "prev" class = "productname" title = "' . $this->escapeHtml($_prev->getName()) . '" href = "' . $_prev->getProductUrl() . '">' . $prename . '</a>';
+                                }
+                                /*
+                                 * Get icon
+                                 */
+                                if ($prevsrc != '') {
+                                    $prevpath = $imgurl . 'prevnext/' . $prevsrc;
+                                    $previcon = '<a rel = "prev" class = "product-prev" title = "' . $this->escapeHtml($_prev->getName()) . '" href = "' . $_prev->getProductUrl() . '"><img src=' . $prevpath . ' alt="prev-icon" /></a>';
+                                }
+                                ?>
+                                <?php echo $previmg; ?>
+                                <?php
+                                if ($prevtextimg == 1) {
+                                    ?>
+                                    <a rel="prev" class="product-prev-link action primary" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>">
+                                        <span><?php echo $prevtext ? $prevtext : 'prev'; ?></span>
+                                    </a>
+                                    <?php
+                                } else if ($prevtextimg == 2) {
+                                    if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable
+                                } else {
+                                    ?>
+                                    <?php if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable ?>
+                                    <a rel="prev" class="product-prev-link action primary" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>">
+                                        <span><?php echo $prevtext ? $prevtext : 'prev'; ?></span>
+                                    </a>
+                                    <?php
+                                }
+                                ?>
+                                <?php echo $prevlink; ?>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                    <div class="next-btn-block">
+                        <?php
+                        if ($_next) {
+                            foreach ($_next as $_next) {
+                                if ($thumb) {
+                                    if ($_next->getImage()) {
+                                        $nextpath = $imgurl . 'catalog/product' . $_next->getImage();
+                                    } else {
+                                        $nextpath = $this->helper('Solwin\Printpage\Helper\Data')->getPlaceHolderImg();
+                                    }
+                                    $nextimg = '<img class="thumb" alt ="thumbnail" src="' . $nextpath . '" width = "' . $thumbwidth . '" height="' . $thumbheight . '" />';
+                                }
+
+                                /*
+                                 * Get name
+                                 */
+                                if ($displayname) {
+                                    $nextname = $this->escapeHtml($_next->getName());
+                                    if ($truncate != "" && strlen($nextname) > $truncate && $truncate < 50) {
+                                        $nextname = substr($nextname, 0, $truncate) . '...';
+                                    }
+                                    $nextlink = '<a rel = "next" class = "productname" title = "' . $this->escapeHtml($_next->getName()) . '" href = "' . $_next->getProductUrl() . '">' . $nextname . '</a>';
+                                }
+                                if ($nextsrc != '') {
+                                    $nextpath = $imgurl . 'prevnext/' . $nextsrc;
+                                    $nexticon = '<a rel = "next" class = "product-next" title = "' . $this->escapeHtml($_next->getName()) . '" href = "' . $_next->getProductUrl() . '"><img src=' . $nextpath . ' alt="next-icon" /></a>';
+                                }
+                                ?>
+
+                                <?php echo $nextimg; ?>
+                                <?php
+                                if ($nexttextimg == 1) {
+                                    ?>
+                                    <a rel = "next" class = "product-next-link action primary" title = "<?php echo $this->escapeHtml($_next->getName()); ?>" href = "<?php echo $_next->getProductUrl(); ?>">
+                                        <span><?php echo $nexttext ? $nexttext : 'next'; ?></span>
+                                    </a>
+                                    <?php
+                                } else if ($nexttextimg == 2) {
+                                    if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable
+                                } else {
+                                    if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable
+                                    ?>
+                                    <a rel = "next" class = "product-next-link action primary" title = "<?php echo $this->escapeHtml($_next->getName()); ?>" href = "<?php echo $_next->getProductUrl(); ?>">
+                                        <span><?php echo $nexttext ? $nexttext : 'next'; ?></span>
+                                    </a>
+                                <?php } ?>
+                                <?php echo $nextlink; ?>
+                                <?php
+                            }
+                        }
+                        ?>    
+                    </div>
+                </div>
+                <?php
+                if ($enablebackto) {
+                    if ($backimgsrc != '') {
+                        $backpath = $imgurl . 'prevnext/' . $backimgsrc;
+                        $backicon = '<a class="back-img" href = "' . $helper->getCurrentCategoryUrl() . '"><img width="60" class="thumb" src=' . $backpath . ' alt="back-icon" /></a>';
+                    }
+                    /*
+                     * Get category thumbnail image
+                     */
+                    $catid = $helper->getCurrentCategoryId();
+                    $catthumb = $helper->getCurrentCategoryThumbnail();
+                    if ($displaythumb && $catthumb != '') {
+                        $catpath = $imgurl . 'catalog/category/' . $catthumb;
+                        $catthumbimg = '<img class="thumb" src = ' . $catpath . ' alt="category-thumbnail" height="' . $thumbheight . '" width="' . $thumbwidth . '"/>';
+                    }
+                    ?>
+                    <div class="back-to-main element-right">
+                        <?php
+                        if (isset($catthumbimg)) {
+                            echo $catthumbimg;
+                        }
+
+                        if ($backtotextimg == 1) {
+                            ?>
+                            <a class="action primary" href="<?php echo $helper->getCurrentCategoryUrl(); ?>">
+                                <?php echo $backtotext ? $backtotext : 'back'; ?>
+                            </a>
+                            <?php
+                        } else if ($backtotextimg == 2) {
+                            echo $backicon;
+                        } else {
+                            echo $backicon;
+                            ?>
+                            <a class="action primary" href="<?php echo $helper->getCurrentCategoryUrl(); ?>">
+                                <?php echo $backtotext ? $backtotext : 'back'; ?>
+                            </a>
+                            <?php
+                        }
+                        ?>
+                        <?php if ($displayCategoryName) { ?>
+                            <a href="<?php echo $helper->getCurrentCategoryUrl(); ?>">
+                                <?php echo $helper->getCurrentCategoryName(); ?>
+                            </a>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+    <?php } else if ($layout == 1) { ?>
+        <?php if ($_prev || $_next) { ?>
+            <div class="prev-next">
+                <?php
+                if ($enablebackto) {
+                    if ($backimgsrc != '') {
+                        $backpath = $imgurl . 'prevnext/' . $backimgsrc;
+                        $backicon = '<a class="back-img" href = "' . $helper->getCurrentCategoryUrl() . '"><img width="60" class="thumb" src=' . $backpath . ' alt="back-icon" /></a>';
+                    }
+                    /*
+                     * Get category thumbnail image
+                     */
+                    $catid = $helper->getCurrentCategoryId();
+                    $catthumb = $helper->getCurrentCategoryThumbnail();
+                    if ($displaythumb && $catthumb != '') {
+                        $catpath = $imgurl . 'catalog/category/' . $catthumb;
+                        $catthumbimg = '<img class="thumb" src = ' . $catpath . ' alt="category-thumbnail" height="' . $thumbheight . '" width="' . $thumbwidth . '"/>';
+                    }
+                    ?>
+                    <div class="back-to-main element-left">
+                        <?php
+                        if (isset($catthumbimg)) {
+                            echo $catthumbimg;
+                        }
+
+                        if ($backtotextimg == 1) {
+                            ?>
+                            <a class="action primary" href="<?php echo $helper->getCurrentCategoryUrl(); ?>">
+                                <?php echo $backtotext ? $backtotext : 'back'; ?>
+                            </a>
+                            <?php
+                        } else if ($backtotextimg == 2) {
+                            echo $backicon;
+                        } else {
+                            echo $backicon;
+                            ?>
+                            <a class="action primary" href="<?php echo $helper->getCurrentCategoryUrl(); ?>">
+                                <?php echo $backtotext ? $backtotext : 'back'; ?>
+                            </a>
+                            <?php
+                        }
+                        ?>
+                        <?php if ($displayCategoryName) { ?>
+                            <a href="<?php echo $helper->getCurrentCategoryUrl(); ?>">
+                                <?php echo $helper->getCurrentCategoryName(); ?>
+                            </a>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+                <div class="pn-nav-block element-right">
+                    <div class="prev-btn-block">
+                        <?php
+                        if ($_prev) {
+                            foreach ($_prev as $_prev) {
+                                /*
+                                 * Get thumbanil image
+                                 */
+                                if ($thumb) {
+                                    if ($_prev->getImage()) {
+                                        $prevpath = $imgurl . 'catalog/product' . $_prev->getImage();
+                                    } else {
+                                        $prevpath = $this->helper('Solwin\Printpage\Helper\Data')->getPlaceHolderImg();
+                                    }
+                                    $previmg = '<img class="thumb" src="' . $prevpath . '" width = "' . $thumbwidth . '" height="' . $thumbheight . '" />';
+                                }
+                                /*
+                                 * Get name
+                                 */
+                                if ($displayname) {
+                                    $prename = $this->escapeHtml($_prev->getName());
+                                    if ($truncate != "" && strlen($prename) > $truncate && $truncate < 50) {
+                                        $prename = substr($prename, 0, $truncate) . '...';
+                                    }
+                                    $prevlink = '<a rel = "prev" class = "productname" title = "' . $this->escapeHtml($_prev->getName()) . '" href = "' . $_prev->getProductUrl() . '">' . $prename . '</a>';
+                                }
+                                /*
+                                 * Get icon
+                                 */
+                                if ($prevsrc != '') {
+                                    $prevpath = $imgurl . 'prevnext/' . $prevsrc;
+                                    $previcon = '<a rel = "prev" class = "product-prev" title = "' . $this->escapeHtml($_prev->getName()) . '" href = "' . $_prev->getProductUrl() . '"><img src=' . $prevpath . ' alt="prev-icon" /></a>';
+                                }
+                                ?>
+                                <?php echo $previmg; ?>
+                                <?php
+                                if ($prevtextimg == 1) {
+                                    ?>
+                                    <a rel="prev" class="product-prev-link action primary" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>">
+                                        <span><?php echo $prevtext ? $prevtext : 'prev'; ?></span>
+                                    </a>
+                                    <?php
+                                } else if ($prevtextimg == 2) {
+                                    if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable
+                                } else {
+                                    ?>
+                                    <?php if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable ?>
+                                    <a rel="prev" class="product-prev-link action primary" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>">
+                                        <span><?php echo $prevtext ? $prevtext : 'prev'; ?></span>
+                                    </a>
+                                    <?php
+                                }
+                                ?>
+                                <?php echo $prevlink; ?>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                    <div class="next-btn-block">
+                        <?php
+                        if ($_next) {
+                            foreach ($_next as $_next) {
+                                if ($thumb) {
+                                    if ($_next->getImage()) {
+                                        $nextpath = $imgurl . 'catalog/product' . $_next->getImage();
+                                    } else {
+                                        $nextpath = $this->helper('Solwin\Printpage\Helper\Data')->getPlaceHolderImg();
+                                    }
+                                    $nextimg = '<img class="thumb" alt ="thumbnail" src="' . $nextpath . '" width = "' . $thumbwidth . '" height="' . $thumbheight . '" />';
+                                }
+
+                                /*
+                                 * Get name
+                                 */
+                                if ($displayname) {
+                                    $nextname = $this->escapeHtml($_next->getName());
+                                    if ($truncate != "" && strlen($nextname) > $truncate && $truncate < 50) {
+                                        $nextname = substr($nextname, 0, $truncate) . '...';
+                                    }
+                                    $nextlink = '<a rel = "next" class = "productname" title = "' . $this->escapeHtml($_next->getName()) . '" href = "' . $_next->getProductUrl() . '">' . $nextname . '</a>';
+                                }
+                                if ($nextsrc != '') {
+                                    $nextpath = $imgurl . 'prevnext/' . $nextsrc;
+                                    $nexticon = '<a rel = "next" class = "product-next" title = "' . $this->escapeHtml($_next->getName()) . '" href = "' . $_next->getProductUrl() . '"><img src=' . $nextpath . ' alt="next-icon" /></a>';
+                                }
+                                ?>
+
+                                <?php echo $nextimg; ?>
+                                <?php
+                                if ($nexttextimg == 1) {
+                                    ?>
+                                    <a rel = "next" class = "product-next-link action primary" title = "<?php echo $this->escapeHtml($_next->getName()); ?>" href = "<?php echo $_next->getProductUrl(); ?>">
+                                        <span><?php echo $nexttext ? $nexttext : 'next'; ?></span>
+                                    </a>
+                                    <?php
+                                } else if ($nexttextimg == 2) {
+                                    if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable
+                                } else {
+                                    if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable
+                                    ?>
+                                    <a rel = "next" class = "product-next-link action primary" title = "<?php echo $this->escapeHtml($_next->getName()); ?>" href = "<?php echo $_next->getProductUrl(); ?>">
+                                        <span><?php echo $nexttext ? $nexttext : 'next'; ?></span>
+                                    </a>
+                                <?php } ?>
+                                <?php echo $nextlink; ?>
+                                <?php
+                            }
+                        }
+                        ?>    
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+    <?php } else if ($layout == 3) { ?>
+        <?php if ($_prev || $_next) { ?>
+            <div class="prev-next">
+                <div class="pn-nav-block">
+                    <div class="prev-btn-block element-left">
+                        <?php
+                        if ($_prev) {
+                            foreach ($_prev as $_prev) {
+                                /*
+                                 * Get thumbanil image
+                                 */
+                                if ($thumb) {
+                                    if ($_prev->getImage()) {
+                                        $prevpath = $imgurl . 'catalog/product' . $_prev->getImage();
+                                    } else {
+                                        $prevpath = $this->helper('Solwin\Printpage\Helper\Data')->getPlaceHolderImg();
+                                    }
+                                    $previmg = '<img class="thumb" src="' . $prevpath . '" width = "' . $thumbwidth . '" height="' . $thumbheight . '" />';
+                                }
+                                /*
+                                 * Get name
+                                 */
+                                if ($displayname) {
+                                    $prename = $this->escapeHtml($_prev->getName());
+                                    if ($truncate != "" && strlen($prename) > $truncate && $truncate < 50) {
+                                        $prename = substr($prename, 0, $truncate) . '...';
+                                    }
+                                    $prevlink = '<a rel = "prev" class = "productname" title = "' . $this->escapeHtml($_prev->getName()) . '" href = "' . $_prev->getProductUrl() . '">' . $prename . '</a>';
+                                }
+                                /*
+                                 * Get icon
+                                 */
+                                if ($prevsrc != '') {
+                                    $prevpath = $imgurl . 'prevnext/' . $prevsrc;
+                                    $previcon = '<a rel = "prev" class = "product-prev" title = "' . $this->escapeHtml($_prev->getName()) . '" href = "' . $_prev->getProductUrl() . '"><img src=' . $prevpath . ' alt="prev-icon" /></a>';
+                                }
+                                ?>
+                                <?php echo $previmg; ?>
+                                <?php
+                                if ($prevtextimg == 1) {
+                                    ?>
+                                    <a rel="prev" class="product-prev-link action primary" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>">
+                                        <span><?php echo $prevtext ? $prevtext : 'prev'; ?></span>
+                                    </a>
+                                    <?php
+                                } else if ($prevtextimg == 2) {
+                                    if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable
+                                } else {
+                                    ?>
+                                    <?php if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable ?>
+                                    <a rel="prev" class="product-prev-link action primary" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>">
+                                        <span><?php echo $prevtext ? $prevtext : 'prev'; ?></span>
+                                    </a>
+                                    <?php
+                                }
+                                ?>
+                                <?php echo $prevlink; ?>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                    <div class="next-btn-block element-right">
+                        <?php
+                        if ($_next) {
+                            foreach ($_next as $_next) {
+                                if ($thumb) {
+                                    if ($_next->getImage()) {
+                                        $nextpath = $imgurl . 'catalog/product' . $_next->getImage();
+                                    } else {
+                                        $nextpath = $this->helper('Solwin\Printpage\Helper\Data')->getPlaceHolderImg();
+                                    }
+                                    $nextimg = '<img class="thumb" alt ="thumbnail" src="' . $nextpath . '" width = "' . $thumbwidth . '" height="' . $thumbheight . '" />';
+                                }
+
+                                /*
+                                 * Get name
+                                 */
+                                if ($displayname) {
+                                    $nextname = $this->escapeHtml($_next->getName());
+                                    if ($truncate != "" && strlen($nextname) > $truncate && $truncate < 50) {
+                                        $nextname = substr($nextname, 0, $truncate) . '...';
+                                    }
+                                    $nextlink = '<a rel = "next" class = "productname" title = "' . $this->escapeHtml($_next->getName()) . '" href = "' . $_next->getProductUrl() . '">' . $nextname . '</a>';
+                                }
+                                if ($nextsrc != '') {
+                                    $nextpath = $imgurl . 'prevnext/' . $nextsrc;
+                                    $nexticon = '<a rel = "next" class = "product-next" title = "' . $this->escapeHtml($_next->getName()) . '" href = "' . $_next->getProductUrl() . '"><img src=' . $nextpath . ' alt="next-icon" /></a>';
+                                }
+                                ?>
+
+                                <?php echo $nextimg; ?>
+                                <?php
+                                if ($nexttextimg == 1) {
+                                    ?>
+                                    <a rel = "next" class = "product-next-link action primary" title = "<?php echo $this->escapeHtml($_next->getName()); ?>" href = "<?php echo $_next->getProductUrl(); ?>">
+                                        <span><?php echo $nexttext ? $nexttext : 'next'; ?></span>
+                                    </a>
+                                    <?php
+                                } else if ($nexttextimg == 2) {
+                                    if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable
+                                } else {
+                                    if(isset($nexticon)) echo $nexticon;    // Icube custom - prevent undefined variable
+                                    ?>
+                                    <a rel = "next" class = "product-next-link action primary" title = "<?php echo $this->escapeHtml($_next->getName()); ?>" href = "<?php echo $_next->getProductUrl(); ?>">
+                                        <span><?php echo $nexttext ? $nexttext : 'next'; ?></span>
+                                    </a>
+                                <?php } ?>
+                                <?php echo $nextlink; ?>
+                                <?php
+                            }
+                        }
+                        ?>    
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+    <?php } ?>
+<?php } ?>

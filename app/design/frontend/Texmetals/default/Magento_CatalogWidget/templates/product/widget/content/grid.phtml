@@ -1,0 +1,139 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Template for displaying products list widget
+ *
+ * @var $block \Magento\CatalogWidget\Block\Product\ProductsList
+ */
+?>
+<?php if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())):?>
+<?php
+    $type = 'widget-product-grid';
+
+    $mode = 'grid';
+
+    $image = 'new_products_content_widget_grid';
+    $title = $block->getTitle() ? __($block->getTitle()) : '';
+    $items = $block->getProductCollection()->getItems();
+
+    $showWishlist = true;
+    $showCompare = true;
+    $showCart = true;
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::DEFAULT_VIEW;
+    $description = true;
+?>
+    <div class="block widget block-products-list <?php /* @escapeNotVerified */ echo $mode; ?>">
+        <?php if ($title):?>
+        <div class="block-title">
+            <h2><span><?php /* @escapeNotVerified */ echo $title; ?></span></h2>
+        </div>
+        <?php endif ?>
+        <div class="block-content">
+            <?php /* @escapeNotVerified */ echo '<!-- ' . $image . '-->' ?>
+            <div class="products-<?php /* @escapeNotVerified */ echo $mode; ?> <?php /* @escapeNotVerified */ echo $mode; ?>">
+                <ol class="product-items <?php /* @escapeNotVerified */ echo $type; ?>">
+                    <?php $iterator = 1; ?>
+                    <?php foreach ($items as $_item): ?>
+                        <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
+                        <div class="product-item-info">
+                            <div class="product-item-details">
+                                <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>" class="product-item-photo">
+                                    <?php echo $block->getImage($_item, $image)->toHtml(); ?>
+                                </a>
+                                <div class="product-more">
+                                    <div class="tag">
+                                        <p><?php /* @escapeNotVerified */ echo __('Lowest Price') ?></p>
+                                    </div>
+                                    <div class="price-cont">
+                                        <?php
+                                        echo $block->getProductPriceHtml($_item, $type);
+                                        ?>
+                                        <span class="ea"><?php /* @escapeNotVerified */ echo __('ea.') ?></span>
+                                    </div>
+
+                                    <?php if ($templateType): ?>
+                                        <?php echo $block->getReviewsSummaryHtml($_item, $templateType) ?>
+                                    <?php endif; ?>
+
+                                    <?php if ($showWishlist || $showCompare || $showCart): ?>
+                                        <div class="product-item-actions">
+                                            <?php if ($showCart): ?>
+                                                <div class="actions-primary">
+                                                    <?php if ($_item->isSaleable()): ?>
+                                                        <?php if ($_item->getTypeInstance()->hasRequiredOptions($_item)): ?>
+                                                            <?php if ($_item->getIsSalable()): ?>
+                                                                <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
+                                                            <?php else: ?>
+                                                                <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
+                                                            <?php endif; ?>
+                                                            <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>"><?php /* @escapeNotVerified */ echo __('View') ?></a>
+                                                        <?php else: ?>
+                                                            <?php if ($_item->getIsSalable()): ?>
+                                                                <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
+                                                            <?php else: ?>
+                                                                <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
+                                                            <?php endif; ?>
+                                                            <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>"><?php /* @escapeNotVerified */ echo __('View') ?></a>
+                                                        <?php endif; ?>
+                                                    <?php else: ?>
+                                                        <?php if ($_item->getIsSalable()): ?>
+                                                            <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
+                                                        <?php else: ?>
+                                                            <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
+                                                        <?php endif; ?>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="product-desc">
+                                <strong class="product-item-name">
+                                    <a title="<?php echo $block->escapeHtml($_item->getName()) ?>"
+                                     href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>"
+                                     class="product-item-link">
+                                     <?php echo $block->escapeHtml($_item->getName()) ?>
+                                    </a>
+                                </strong>
+                                <?php  //Get Description
+                                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                                    $product = $objectManager->get('Magento\Catalog\Model\Product')->load($_item->getId());
+                                    $description = $product->getDescription();
+                                    $description = preg_replace("/<img[^>]+\>/i", "", $description);
+                                    $url = $block->getProductUrl($_item);
+                                    if (strlen($description) > 600) {
+                                        $stringCut = substr($description, 0, 600);
+                                        $description = substr($stringCut, 0, strrpos($stringCut, ' '))."<br /><a href='".$url."'> more...</a>";
+                                    }
+                                ?>
+                                <div class="brands">
+                                    <p>
+                                        <?php echo $description; ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php echo($iterator == count($items)+1) ? '</li>' : '' ?>
+                    <?php endforeach ?>
+                </ol>
+                <div id="bx-pager">
+                    <?php $number = 0; ?>
+                    <?php foreach ($items as $_pager) : ?>
+                        <a data-slide-index="<?php echo $number; ?>" href=""><?php echo $block->escapeHtml($_pager->getName()) ?></a>
+                    <?php $number++ ?>
+                    <?php endforeach ?>
+              </div>
+            </div>
+            <?php echo $block->getPagerHtml() ?>
+        </div>
+    </div>
+<?php endif;?>

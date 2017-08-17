@@ -1,0 +1,21 @@
+<?php $_products = $this->getProducts() ?>
+<?php $_cartItem = $this->getCartItem() ?>
+<?php if (count($_products) > 0): ?>
+    <select
+            name="<?php echo $this->getFieldName()?>"
+            id='<?php echo $this->getFieldId()?>'
+            class='<?php echo $this->getFieldClass() . ' webforms-product-field ' . $this->getField()->getCode();?>'
+            aria-labelledby="label_<?php echo $this->getFieldId() ?>"
+            <?php if($this->getField()->getRequired()) {?>required<?php }?>
+            style='<?php echo $this->getFieldStyle()?>' <?php if($this->getField()->getDisabled()){?> disabled <?php } ?>>>
+
+            <option value=""><?php echo __('-- Please Select --');?></option>
+
+        <?php foreach($_products as $_product): ?>
+            <?php $selected = (($this->getFieldValue() == $_product->getSku()) || ($_cartItem && $_cartItem->getSku() == $_product->getSku())) ? 'selected="selected"' : ''; ?>
+            <option value="<?php echo $_product->getSku() ?>" <?php echo $selected ?>>
+                <?php echo $_product->getName() ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+<?php endif; ?>

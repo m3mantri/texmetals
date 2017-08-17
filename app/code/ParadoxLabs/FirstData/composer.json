@@ -1,0 +1,17 @@
+{
+    "name": "paradoxlabs/firstdata",
+    "description": "First Data payment method for Magento 2.x by Paradox Labs",
+    "keywords": ["payment", "first", "data", "tokenization"],
+    "require": {
+        "paradoxlabs/tokenbase": "3.1.2"
+    },
+    "type": "magento2-module",
+    "version": "1.0.2",
+    "license": "proprietary",
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "ParadoxLabs\\FirstData\\": ""
+        }
+    }
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
+ * @package Amasty_Extrafee
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- Managing totals information -->
+    <route url="/V1/amasty_extrafee/carts/:cartId/totals-information" method="POST">
+        <service class="Amasty\Extrafee\Api\TotalsInformationManagementInterface" method="calculate"/>
+        <resources>
+            <resource ref="Magento_Cart::manage" />
+        </resources>
+    </route>
+
+    <!-- Managing guest totals information -->
+    <route url="/V1/amasty_extrafee/guest-carts/:cartId/totals-information" method="POST">
+        <service class="Amasty\Extrafee\Api\GuestTotalsInformationManagementInterface" method="calculate"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Managing My totals information -->
+    <route url="/V1/amasty_extrafee/carts/mine/totals-information" method="POST">
+        <service class="Amasty\Extrafee\Api\TotalsInformationManagementInterface" method="calculate"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+    <!-- Managing fees information -->
+    <route url="/V1/amasty_extrafee/carts/:cartId/fees-information" method="POST">
+        <service class="Amasty\Extrafee\Api\FeesInformationManagementInterface" method="collect"/>
+        <resources>
+            <resource ref="Magento_Cart::manage" />
+        </resources>
+    </route>
+
+    <!-- Managing guest fees information -->
+    <route url="/V1/amasty_extrafee/guest-carts/:cartId/fees-information" method="POST">
+        <service class="Amasty\Extrafee\Api\GuestFeesInformationManagementInterface" method="collect"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Managing My totals information -->
+    <route url="/V1/amasty_extrafee/carts/mine/fees-information" method="POST">
+        <service class="Amasty\Extrafee\Api\FeesInformationManagementInterface" method="collect"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+</routes>

@@ -1,0 +1,22 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
+ * @package Amasty_Extrafee
+ */
+?>
+<?php /** @var $block \Amasty\Extrafee\Block\Cart\Fee\Options */ ?>
+
+<div id="block-amasty-extrafee-options">
+
+    <div id="block-amasty-extrafee-summary" data-bind="scope:'block-amasty-extrafee-summary'" class="content">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <script type="text/x-magento-init">
+            {
+                "#block-amasty-extrafee-summary": {
+                    "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout();?>
+                }
+            }
+        </script>
+    </div>
+</div>

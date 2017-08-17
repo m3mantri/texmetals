@@ -1,0 +1,66 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/** @var $block \Magento\Checkout\Block\Cart */
+?>
+<?php if (!$block->hasError()): ?>
+<?php $methods = $block->getMethods('methods') ?: $block->getMethods('top_methods') ?>
+<ul class="checkout methods items checkout-methods-items">
+<?php foreach ($methods as $method): ?>
+    <?php if ($methodHtml = $block->getMethodHtml($method)): ?>
+    <li class="item"><?php /* @escapeNotVerified */ echo $methodHtml; ?></li>
+    <?php endif; ?>
+<?php endforeach; ?>
+</ul>
+<?php endif; ?>
+    <?php
+$custId = $this->getRequest()->getParam('checkout');
+
+if ($custId == 'sell-back'):?>
+<button type="button" data-role="proceed-to-checkout" title="Proceed to Checkout" class="action primary sellback1 popup" href="<?php echo $block->getUrl();?>sellback/limitorder">
+	<span>Sell Back Limit Order</span>
+</button>
+<button type="button" data-role="proceed-to-checkout" title="Proceed to Checkout" class="action primary sellback2 popup" href="<?php echo $block->getUrl();?>sellback/checkout">
+	<span>Sell Back</span>
+</button>
+<?php elseif ($custId == 'limit-order'):?>
+<button type="button" data-role="proceed-to-checkout" title="Proceed to Checkout" class="action primary limitorder popup" href="<?php echo $block->getUrl();?>limitorders/checkout">
+	<span>Limit Order</span>
+</button>
+<?php else:?>
+<button type="button" data-role="proceed-to-checkout" title="Proceed to Checkout" class="action primary limitorder2 popup" href="<?php echo $block->getUrl();?>limitorders/checkout">
+	<span>Limit Order</span>
+</button>
+<button type="button" data-role="proceed-to-checkout" title="Proceed to Checkout" class="action primary checkout2 popup" href="<?php echo $block->getUrl();?>checkout">
+	<span>Checkout</span>
+</button>
+<?php endif ?>
+
+<script type="text/javascript">
+        require([
+            'jquery'
+        ], function($){
+            
+        $(".checkout.methods.items.checkout-methods-items").appendTo(".disclaimer_popup");
+        });
+
+    </script>
+
+<!-- <script type="text/javascript">
+        require([
+            'jquery'
+        ], function($){
+            
+        $("body").delegate(".disclaimer_popup", "click", function() {
+    $(".checkout-methods-items").click();
+});
+
+        });
+    </script> -->

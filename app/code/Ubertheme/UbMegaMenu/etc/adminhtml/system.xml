@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Ubertheme.com All rights reserved.
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="ubertheme" translate="label" sortOrder="999">
+            <label>UberTheme</label>
+        </tab>
+        <section id="ubmegamenu" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>UB Mega Menu</label>
+            <tab>ubertheme</tab>
+            <resource>Ubertheme_UbMegaMenu::settings</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="show_number_product" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Product Quantity</label>
+                    <comment>Apply for Category Menu Type only. </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="default_mega_col_width" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mega Column Width</label>
+                    <comment>Set a default value(px)</comment>
+                    <validate>required-entry validate-digits validate-digits-range digits-range-0-1900</validate>
+                </field>
+                <field id="mega_col_margin" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mega Column Margin</label>
+                    <comment>Set a default value(px)</comment>
+                    <validate>required-entry validate-digits validate-digits-range digits-range-0-50</validate>
+                </field>
+                <field id="mega_content_visible_in" translate="label" type="multiselect" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Mega Content On</label>
+                    <source_model>Ubertheme\UbMegaMenu\Model\Config\Source\Devices</source_model>
+                    <comment>Mega Content (Description, Custom Content, Static Blocks) will be enabled for all devices by default. Deselect specific devices you wish to hide mega content. </comment>
+                </field>
+                <field id="start_level" translate="label comment" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Start Level</label>
+                    <comment>For multiple menu levels, define which level you want to show on frontend. Default value 0 will load parent menu item.</comment>
+                    <validate>required-entry validate-digits validate-digits-range digits-range-0-10</validate>
+                </field>
+                <field id="end_level" translate="label comment" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>End Level</label>
+                    <comment>Set a default end level of menu items</comment>
+                    <validate>required-entry validate-digits validate-digits-range digits-range-0-10</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

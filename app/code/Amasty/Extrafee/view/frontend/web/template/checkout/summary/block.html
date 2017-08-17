@@ -1,0 +1,20 @@
+<div class="amasty-extrafee-opc-block-fees" visible="visible()" data-bind="blockLoader: isLoading">
+    <div class="block items-in-cart" data-bind="mageInit: {'collapsible':{'active': '1', 'openedState': 'active'}}">
+        <div class="title" data-role="title">
+            <strong role="heading">
+                <!-- ko i18n: 'Additional Fees' --><!-- /ko -->
+            </strong>
+        </div>
+        <div class="content" data-role="content">
+            <div class="minicart-items-wrapper overflowed">
+                <div class="minicart-items">
+                    <form method="post" id="amasty-extrafee-form">
+                        <!-- ko foreach: getRegion('amasty-extrafee-fieldsets') -->
+                        <!-- ko template: getTemplate() --><!-- /ko -->
+                        <!--/ko-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

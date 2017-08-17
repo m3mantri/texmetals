@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
+ * @package Amasty_Extrafee
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Amasty\Extrafee\Block\Adminhtml\Fee\Edit" name="amasty_extrafee_edit_content"/>
+        </referenceContainer>
+
+        <referenceContainer name="left">
+            <block class="Amasty\Extrafee\Block\Adminhtml\Fee\Edit\Tabs" name="amasty_extrafee_edit_tabs">
+                <block class="Amasty\Extrafee\Block\Adminhtml\Fee\Edit\Tab\General" name="amasty_extrafee_edit_tab_general"/>
+                <block class="Amasty\Extrafee\Block\Adminhtml\Fee\Edit\Tab\Option" name="amasty_extrafee_edit_tab_option"/>
+                <block class="Amasty\Extrafee\Block\Adminhtml\Fee\Edit\Tab\Filter" name="amasty_extrafee_edit_tab_filter"/>
+                <block class="Amasty\Extrafee\Block\Adminhtml\Fee\Edit\Tab\Condition" name="amasty_extrafee_edit_tab_condition"/>
+                <block class="Amasty\Extrafee\Block\Adminhtml\Fee\Edit\Tab\Calculation" name="amasty_extrafee_edit_tab_calculation"/>
+
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">amasty_extrafee_edit_tab_general</argument>
+                    <argument name="block" xsi:type="string">amasty_extrafee_edit_tab_general</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">amasty_extrafee_edit_tab_option</argument>
+                    <argument name="block" xsi:type="string">amasty_extrafee_edit_tab_option</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">amasty_extrafee_edit_tab_filter</argument>
+                    <argument name="block" xsi:type="string">amasty_extrafee_edit_tab_filter</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">amasty_extrafee_edit_tab_condition</argument>
+                    <argument name="block" xsi:type="string">amasty_extrafee_edit_tab_condition</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">amasty_extrafee_edit_tab_calculation</argument>
+                    <argument name="block" xsi:type="string">amasty_extrafee_edit_tab_calculation</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

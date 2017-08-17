@@ -1,0 +1,24 @@
+.table-payment-chart td{
+    border: 1px solid #BFC0C1;
+    font-size: 11px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+.table-payment-chart tr{
+/*    padding: 10px;
+    text-transform: uppercase;*/
+}
+.table-payment-chart th{ 
+    background-color: #e08e66;
+    border: 1px solid #BFC0C1;
+    color: #fff;
+    padding: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size:11px;}
+.table-payment-chart{margin-bottom:25px;}
+.cms-payment-methods .table-payment-chart{min-width: 360px;}
+
+.page-title{
+    margin: 0px;
+}

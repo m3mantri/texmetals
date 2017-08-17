@@ -1,0 +1,65 @@
+<?php echo ( isset($menuHtml) ) ? $menuHtml : ''; ?>
+
+<script type="text/javascript">
+    require([
+            'jquery',
+            'matchMedia',
+            "domReady!"
+        ], function($, mediaCheck){
+
+            var breakPoint =  '768px';
+
+            //add CSS mega-hover for li.mega tags when mouse hover
+            var addMegaHover = function() {
+                $('.ub-mega-menu').find('li.mega').each(function(i, el) {
+                    $(el).mouseenter(function(){
+                        $(this).addClass('mega-hover');
+                    }).mouseleave(function(){
+                        $(this).removeClass('mega-hover');
+                    });
+                });
+            }
+
+            //remove CSS class mega-hover in li.mega tags when mouse hover
+            var removeMegaHover = function() {
+                $('.sidebar .ub-mega-menu').find('li.mega').each(function(i, el) {
+                    $(el).off('mouseenter').off('mouseleave');
+                });
+            }
+
+            $(function(){
+
+                addMegaHover();
+
+                /**
+                 * only apply for main-menu
+                 */
+                mediaCheck({
+                    media: '(max-width: ' + breakPoint + ')',
+                    entry:function() {
+                        //show/hide sub menu items: Mobile and Tablet portrait only
+                        $('ul.mega-menu li.has-child span.menu-parent-icon').each(function(index, el) {
+                            $(el).on('click', function(e) {
+                                //close siblings elements
+                                $(this).parent().siblings('.has-child').children().removeClass('active');
+                                //open/close current element
+                                if (!$(this).hasClass('active')) {
+                                    $(this).addClass('active').siblings('.child-content').addClass('active');
+                                } else {
+                                    $(this).removeClass('active').siblings('.child-content').removeClass('active');
+                                }
+                            });
+                        });
+                        removeMegaHover();
+                    },
+                    exit: function() {
+                        $('ul.mega-menu li.has-child span.menu-parent-icon').each(function(index, el){
+                            $(el).off('click');
+                            $(this).removeClass('active').siblings('.child-content').removeClass('active');
+                        });
+                        addMegaHover();
+                    }
+                });
+            });
+    });
+</script>

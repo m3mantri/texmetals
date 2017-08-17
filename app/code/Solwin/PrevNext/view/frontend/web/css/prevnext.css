@@ -1,0 +1,80 @@
+/**
+ * Solwin Infotech
+ * Solwin Previous Next Products Extension
+ *
+ * @category   Solwin
+ * @package    Solwin_PrevNext
+ * @copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+ * @license    https://www.solwininfotech.com/magento-extension-license/ 
+ */
+
+.product-nav-block {
+    float: left;
+    width:100%;
+    clear: both;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.product-nav-block .prev-next {
+    float: left;
+    width:100%;
+    box-sizing: border-box;
+}
+.element-left {
+    float: left;
+}
+.element-right {
+    float: right;
+}
+.back-to-main a.back-link , .product-prev-link , .product-next-link {
+    background: none repeat scroll 0 0 #1979c3;
+    border-radius: 3px;
+    color: #ffffff !important;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 7px 15px;
+    text-decoration: none;
+    outline: none;
+    border: 1px solid #1979c3;
+}
+.back-to-main .thumb {
+    display: block;
+    margin: 0 auto;
+}
+.back-to-main a.back-link:hover , .product-prev-link:hover , .product-next-link:hover {
+    background: #006BB4;
+    text-decoration: none;
+    border: 1px solid #006BB4;
+}
+.back-to-main a {
+    display: block;
+    text-align: center;
+}
+.pn-nav-block.element-left .prev-btn-block , .pn-nav-block.element-left .next-btn-block {
+    float: left;
+    margin-right: 15px;
+}
+.pn-nav-block.element-right .prev-btn-block , .pn-nav-block.element-right .next-btn-block {
+    float: left;
+    margin-left: 15px;
+}
+.pn-nav-block .prev-btn-block .product-prev , .pn-nav-block .next-btn-block .product-next {
+    display: block;
+}
+.pn-nav-block .prev-btn-block .product-prev img , .pn-nav-block .next-btn-block .product-next img {
+    display: block;
+    margin: 0 auto;
+}
+.pn-nav-block .thumb  {
+    margin: 0 auto;
+    display: block;
+}
+.pn-nav-block .productname , .pn-nav-block .product-prev-link , .pn-nav-block .product-next-link {
+    float: left;
+    width:100%;
+    text-align: center;
+    clear: left;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}

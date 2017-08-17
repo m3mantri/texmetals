@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
+ * @package Amasty_Extrafee
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amasty_extrafee>
+            <calculation>
+                <discount_in_subtotal>0</discount_in_subtotal>
+                <tax_in_subtotal>0</tax_in_subtotal>
+                <shipping_in_subtotal>0</shipping_in_subtotal>
+            </calculation>
+            <tax>
+                <tax_class>0</tax_class>
+            </tax>
+            <frontend>
+                <cart>1</cart>
+                <checkout>1</checkout>
+            </frontend>
+        </amasty_extrafee>
+    </default>
+</config>

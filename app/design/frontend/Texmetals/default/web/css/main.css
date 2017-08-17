@@ -1,0 +1,736 @@
+.paraxify {
+	background-attachment:fixed;
+	background-position:center center;
+	-webkit-background-size:cover;
+	background-size:cover
+}
+*, *:before, *:after {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box
+}
+.description {
+	font-size:1.5em;
+	font-weight:normal;
+	margin:1em 0
+}
+
+.bloque {
+	background-color:#f2f2f2
+}
+.bloque.texto {
+	/*padding:2em;*/
+	text-align:left;
+	color:#111
+}
+.bloque.texto .content {
+	max-width:960px;
+	margin-left:auto;
+	margin-right:auto;
+	/*margin-bottom:.5em*/
+	padding:0px;
+}
+.paraxify {
+	background-attachment:scroll;
+        background-position: top center !important;
+}
+.bloque.foto {
+	/*background-color:red;*/
+	background-repeat:no-repeat;
+	height:300px;
+	position:relative
+}
+.bloque.foto * {
+	text-shadow:0 1px 2px #000
+}
+.over {
+	padding:2em 1em 0 1em;
+	padding-top:9em;
+/*padding-bottom:15em;*/
+  display: inline-block;
+    height: 100%;
+    padding: 9em 0;
+    width: 100%;
+}
+.doing-business{ font-size:18px;}
+.over h1 {
+	line-height:0.8
+}
+.over:after {
+/*	content:'\2228';
+	display:inline-block;
+	border-radius:50%;
+	margin:1em 0;
+	width:2em;
+	height:2em;
+	line-height:2em;
+	font-size:2em;
+	text-shadow:none !important;
+	background:#7ea613;
+	background:rgba(255, 255, 255, 0.3)*/
+}
+.toTop {
+	content:'\2228';
+	text-decoration:none;
+	display:inline-block;
+	border-radius:50%;
+	margin:1em 0;
+	width:2em;
+	height:2em;
+	line-height:2.3;
+	font-size:3em;
+	text-shadow:none !important;
+	background:#7ea613;
+	background:rgba(255, 255, 255, 0.3)
+}
+// .share {
+// 	padding:3em 0 0 0
+// }
+.button {
+	/*display:inline-block;
+	margin-top:.5em;
+	padding:.75em 1.5em;
+	font-size:1.3em;
+	border-radius:.35em;
+	text-decoration:none;
+	font-weight:bold;
+	color:white;
+	background:#7ea613;
+	border:0.1em solid #a4c059;
+	-webkit-box-shadow:0 0 0 transparent;
+	box-shadow:0 0 0 transparent;*/
+// -webkit-transition:.5s ease-out;
+// transition:.5s ease-out;
+// 	background:-webkit-gradient(linear, left top, left bottom, from(#a1d418), to(#7ea613));
+// filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a1d418', endColorstr='#7ea613')
+}
+.button:hover {
+	-webkit-transition:0.3s cubic-bezier(0.29, 1.24, 0.96, 1.25);
+	transition:0.3s cubic-bezier(0.29, 1.24, 0.96, 1.25);
+	-webkit-box-shadow:0 .5em 1em -.25em #000;
+	box-shadow:0 .5em 1em -.25em #000;
+	-webkit-transform:scale(1.2);
+	-ms-transform:scale(1.2);
+	transform:scale(1.2)
+}
+@-webkit-keyframes parallax-bg {
+0% {
+background-position:center 0
+}
+100% {
+background-position:center 50px
+}
+}
+@keyframes parallax-bg {
+0% {
+background-position:center 0
+}
+100% {
+background-position:center 50px
+}
+}
+@-webkit-keyframes parallax {
+0% {
+background-position:center -50px
+}
+100% {
+background-position:center 0
+}
+}
+@keyframes parallax {
+0% {
+background-position:center -50px
+}
+100% {
+background-position:center 0
+}
+}
+.cms-about-us .foto.intro_foto {
+	height:auto;
+	background-attachment:scroll;
+	-webkit-background-size:cover;
+	background-size:cover;
+	background-position:center center;
+	background-image:url("../Magento_Theme/images/about-us/FirstImage-small.jpg") !important;
+        overflow: visible;
+}
+.cms-about-us .foto.foto-1 {
+	background-image:url("../Magento_Theme/images/about-us/1_small.jpg") !important;
+}
+.cms-about-us .foto.foto-2 {
+	background-image:url("../Magento_Theme/images/about-us/Reviews-small.jpg") !important;
+}
+.cms-about-us .foto.foto-3 {
+	background-image:url("../Magento_Theme/images/about-us/wire_men_small.jpg") !important;
+}
+.cms-about-us .foto.foto-4 {
+	background-image:url("../Magento_Theme/images/about-us/shopping-lady-small.jpg") !important;
+}
+.cms-about-us .foto.foto-5 {
+background-image:url("../Magento_Theme/images/about-us/img-4-small.jpg") !important;
+}
+.cms-about-us .foto.foto-6 {
+background-image:url("../Magento_Theme/images/about-us/ranch-hand-welders.jpg") !important;
+}
+.image-box-3{ background:url(../Magento_Theme/images/about-us/Leftimage-small.jpg); background-size:100% 100%; min-width:330px; min-height:260px;}
+.over .icon-TexasWords{ font-size:357%;}
+
+//sell to us page
+.sell-to-us-photo1 {
+background-image:url("../Magento_Theme/images/about-us/ranch-hand-welders.jpg");
+}
+
+@media screen and (min-width: 40em) {
+/*header {
+position:fixed;
+background:rgba(0, 0, 0, 0.7);
+top:0;
+right:0;
+left:0;
+z-index:100
+}
+h1 {
+font-size:4em
+}
+h2 {
+font-size:2.5em
+}
+p, ul, ol, ul ul, pre {
+font-size:1.2rem
+}
+ul ul {
+padding-bottom:.5em
+}
+*/.over {
+padding-top:9em;
+/*padding-bottom:15em;*/
+  display: inline-block;
+    height: 100%;
+    padding: 9em 0;
+    width: 100%;
+}
+.bloque.texto {
+/*padding:4em 0;*/
+background-color:#d9ad70;
+}
+.bloque.texto .content {
+max-width:100%;
+padding-top:0px;
+}
+.bloque.foto {
+height:500px
+}
+.cms-about-us .foto.intro_foto {
+height:100%;
+background-image:url("../Magento_Theme/images/about-us/FirstImage.jpg") !important;
+}
+:root .example {
+width:200px;
+float:right;
+left:1em;
+height:250px;
+border:1px solid #333;
+background:#CCC;
+background-image:url("../Magento_Theme/images/about-us/grille.jpg");
+-webkit-background-size:auto 200px;
+background-size:auto 200px;
+background-repeat:no-repeat;
+background-position:center 0;
+margin:0 auto;
+position:relative;
+-webkit-transition:1s;
+transition:1s
+}
+:root .example:before {
+content:'';
+display:block;
+height:100%;
+background:#7ea613;
+background:rgba(126, 166, 19, 0.5);
+color:white;
+text-align:center;
+line-height:50px
+}
+:root .example:hover, :root .example:focus, :root .example:active {
+-webkit-animation:parallax-bg 1s ease-in-out infinite alternate;
+animation:parallax-bg 1s ease-in-out infinite alternate
+}
+:root .example:hover:after, :root .example:focus:after, :root .example:active:after {
+-webkit-animation:parallax 1s ease-in-out infinite alternate;
+animation:parallax 1s ease-in-out infinite alternate
+}
+:root .example:after {
+content:'.paraxify';
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+margin:auto;
+display:inline-block;
+height:150px;
+background:#CCC;
+color:white;
+background-image:url("../Magento_Theme/images/about-us/grille.jpg");
+-webkit-background-size:auto 200px;
+background-size:auto 200px;
+background-repeat:no-repeat;
+background-position:center -50px;
+text-align:center;
+line-height:150px
+}
+
+}
+@media screen and (min-width: 60em) {
+#section-2-link .content{ padding-top:0px !important}
+.paraxify {
+background-attachment:fixed
+}
+.cms-about-us .foto.foto-1 {
+background-image:url("../Magento_Theme/images/about-us/1.jpg")
+}
+.cms-about-us  .foto.foto-2 {
+background-image:url("../Magento_Theme/images/about-us/Reviews.jpg")
+}
+.cms-about-us  .foto.foto-3 {
+
+background-image:url("../Magento_Theme/images/about-us/wire-men.jpg")
+}
+.cms-about-us .foto.foto-4 {
+background-image:url("../Magento_Theme/images/about-us/shopping-lady.jpg")
+}
+.cms-about-us  .foto.foto-5 {
+background-image:url("../Magento_Theme/images/about-us/img-4.jpg")
+}
+.cms-about-us  .foto.foto-6 {
+background-image:url("../Magento_Theme/images/about-us/ranch-hand-welders.jpg")
+}
+.image-box-3{ background:url(../Magento_Theme/images/about-us/Leftimage.jpg); background-size:100% 100%; min-width:330px; min-height:260px;}
+}
+.logo-div{
+display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+	width:100%;
+	font-size:21px;}
+	.logo-div .icon-TexasWords{ color:#fff !important; }
+	.doing-business{ text-transform:uppercase; color:#fff; border:1px solid #FFF; margin-top:65%; padding:2%; text-align:center}
+	.linktosection {
+    float: left;
+    padding-top: 3%;
+    text-align: center;
+    width: 100%;
+}
+.arrowdown{ background:url("../Magento_Theme/images/about-us/down-arrow.png"); height:32px; width:32px; display:block; margin:0 auto; }
+.section-4-box{ width:50%;/* padding:32px 41px 40px 46px;padding:25px 18px 1px 25px;*/}
+.section-4-box h1,.little-box h1{ color:#fff !important; padding-bottom:0px; font-size:28px; text-align:center}
+.section-4-box p,.little-box p{ color:#fff; padding-bottom:15px;}
+.image-box-2{ background:url(../Magento_Theme/images/about-us/stown.jpg); background-size:100% 100%; min-width:330px; min-height:260px;}
+
+.slider{ width:85%; margin:0 auto;}
+.foto-2 h2{ text-align:center; padding-top:12%; color:#fff;}
+.equal {  
+    flex:auto;
+	    align-items: center;
+    justify-content: center;
+/*	width:100%;*/
+display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.center-contents{
+		    align-items: center;
+    justify-content: center;
+/*	width:100%;*/
+	 display: -webkit-box;
+    display: moz-box-flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+	  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+    -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content:center;
+	}
+
+	.section-4-box span {
+    float: left;
+    padding-bottom: 8px;
+    width: 100%;
+	color:#fff;
+	text-align:center;
+}
+
+	.little-box span {
+    float: left;
+    padding-bottom: 8px;
+    width: 100%;
+	color:#fff;
+	text-align:center;
+}
+.section-4-box .icon-airplane-2 ,.section-4-box .icon-three,.section-4-box  .icon-checkmark{
+ font-size: 54px;
+ color:#fff;
+ text-align:center;
+}
+.little-box .icon-airplane-2 ,.little-box .icon-three,.little-box  .icon-checkmark{
+ font-size: 54px;
+ color:#fff;
+ text-align:center;
+}
+.section-4-box .title{ text-align:center; font-size:16px;}
+.little-box .title{ text-align:center; font-size:16px;}
+.services-block-aboutus{ width:31%; float:left; }
+.services-block-aboutus-2{ width:36%; float:left; padding:0px 2%;}
+.zoom-section{clear:both;/*margin-top:20px;*/}
+.zoom-small-image{/*border:4px solid #CCC;*/float:left;/*margin-bottom:20px;*/}
+.zoom-small-image img {
+    height: 100%;
+    width: 100%;
+}
+.showTab{ display: block !important;}
+#aboutus_video{ height: 100%; width: 100%;}
+#rev_slider_3_wrapper .tp-bannertimer{ visibility: hidden !important; }
+
+/*full screen section*/
+     
+        /* background setup */
+.background {
+    background-repeat:no-repeat;
+    /* custom background-position */
+    background-position:50% 50%;
+    /* ie8- graceful degradation */
+    background-position:50% 50%\9 !important;
+}
+
+/* fullscreen setup */
+html, body {
+    /* give this to all tags from html to .fullscreen */
+    height:100%;
+}
+.fullscreen,
+.content-a {
+    width:100%;
+    // min-height:100%;
+    float:left;
+}
+.not-fullscreen,
+.not-fullscreen .content-a,
+.fullscreen.not-overflow,
+.fullscreen.not-overflow .content-a {
+    height:100%;
+    overflow:hidden;
+    float:left;
+}
+
+/* content centering styles */
+.content-a {
+	display:table;
+/*        padding: 50px;*/
+}
+.content-b {
+	display:table-cell;
+    position:relative;
+	vertical-align:middle;
+/*	text-align:center;*/
+}
+
+/* visual styles */
+/*body{
+    margin:0;
+    font-family:sans-serif;
+    font-size:28px;
+    line-height:100px;
+	color:#ffffff;
+    text-align:center;
+}
+section {
+	background:#9ed100;
+}*/
+.not-fullscreen {
+    height:50%;
+    width:100%;
+}
+#container-box-equal {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    float:left;
+    background-color: #d9ad70;
+}
+#dummy-box {
+    padding-top: 75%; /* 4:3 aspect ratio */
+}
+#element-box {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: silver /* show me! */
+}
+.alignContents {
+width: 100%;
+height: 100%;
+text-align: center;
+vertical-align: middle;
+display: flex;
+justify-content: center;
+align-content: center;
+align-items: center;
+
+}
+
+/*equal width and height*/
+
+.container-equal-box-2 {
+/*    margin: 10px 10px 0;*/
+}
+
+/* outer container will define aspect ratio */
+.outer-equal-box-2 {
+    position: relative;
+    width: 100%;
+}
+
+.outer-equal-box-2.r4x3 {
+    padding-top: 75%; /* "height" will be 3/4 of width */
+}
+
+.outer-equal-box-2.r2x1 {
+    padding-top: 50%; /* "height" will be 1/2 of width */
+}
+
+/* inner container positioned absolutely and holds content */
+.outer-equal-box-2 .inner-equal-box-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+/*    outline: 1px solid grey;*/
+}
+
+/* example content */
+.little-box {
+    float: left;
+/*    outline: 1px solid steelblue;*/
+    width: 50%;
+/*    height: 33.333%;*/
+    height: 50%;
+    padding: 20px;
+    background-color: #d9ad70;
+    color:#fff;
+}
+
+/* just for display purposes... */
+.inner-equal-box-2::after {
+    content: attr(data-size);
+    position: absolute;
+    left:0;
+    top: -1em;
+}
+/*.custom-outer-cms{ height:100% !important}
+.custom-outer-cms #outer-canvas{height:100% !important}
+.custom-outer-cms .std{height:100% !important}*/
+ .content-a h1 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: bold;
+}
+.first-section-storage {
+    bottom: 15%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+.custom-outer-cms h2,.cms-about-us h2{ text-transform: uppercase; font-size: 22px;}
+.custom-outer-cms p,.cms-about-us p{ padding: 10px 0px; font-size:17px; }
+.cms-sell-gold-coins p{padding: 10px 0px; font-size:17px; }
+.bulited-list-storage { width: 100%;  margin-bottom: 10px; list-style-type: none !important;  }
+.bulited-list-storage li{ width: 100%; text-transform: uppercase;line-height: 27px;}
+
+.bulited-list-storage > li:before {
+    content: "â€“"; /* en dash here */
+    position: absolute;
+    margin-left: -1.1em; 
+}
+.fullscreen .accordion-faq .panel-heading a{ background-color: #666}
+.fullscreen .accordion-faq .panel-heading a{ border-color: #666}
+.fullscreen .accordion-faq .panel-heading a{font-size: 18px; font-weight: normal; text-transform: uppercase;padding:15px 5px 12px 15px;}
+.fullscreen .heading-title-faq{ color: #c00; text-transform: uppercase;font-size:22px;}
+.contact-no-skype {
+/*    color: #c00;*/
+    font-size: 25px !important;
+    padding-top: 10px;
+    text-align: center;
+}
+.not-fullscreen .content-a span{ width: 100%; float:left;font-size: 16px;}
+.section-2-responsive{ width: 50%;}
+.responsive-section-3-left{ width: 70%}
+.responsive-section-3-right{ width: 30%; }
+/*.contact-section-storage{text-align: center !important}*/
+.storage-page-video {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    z-index: 2;
+}
+.storage-page-video video{ width:100%}
+.imgbuilding{ max-width:320px; margin-top: 15px;}
+.imgcoin-storage{ max-width: 600px; position: absolute;left:-51px;}
+.imgcoin-storage-award{ max-width: 200px;margin: 10px auto;}
+.cell-phone-storage-page{ max-width: 400px;}
+
+  #video_container {
+     bottom: 0;
+     left: 0;
+     position: relative;
+     top: 0;
+     width: 100%;
+     min-height: 720px;
+     background-position: center;
+/*     float:left;*/
+height:100%;
+    }
+   #bgvid {
+     width: auto;
+     height:100%;
+   }
+/*     #video_container  video{ height:100% ;}*/
+     .first-section-storage h1{ font-size: 45px; color:#fff; font-weight: bold;}
+     .heading-storage-page{ font-size: 45px; color:#fff; font-weight: bold; text-transform: uppercase;}
+     
+     
+ .title-img-sister-cities{ width: 100%;}
+ #featuredin_section{ clear:both;}
+ .bggredient{
+          background: #eeeeee; /* Old browsers */
+background: -moz-linear-gradient(top, #fff 54%, #eee 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(54%,#fff), color-stop(100%,#eee)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #fff 54%,#eee 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #fff 54%,#eee 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #fff 54%,#eee 100%); /* IE10+ */
+background: linear-gradient(to bottom, #fff 54%,#eee 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#eee',GradientType=0 ); /* IE6-9 */
+ }
+ .space-top {
+    margin-top: 15px;
+}
+.storage-page-space{ margin: 40px 0px; padding-bottom: 10px;}
+.middle-content-storagepage{padding:0px 50px !important; overflow:hidden;}
+
+.row-equal-height {
+    display: flex; /* equal height of the children */
+}
+
+.equal-height-column {
+    flex: 1; /* additionally, equal width */
+}
+    .equal-height-element {
+  float: left;
+  width: 48%;
+  background: #ccc;
+  margin: 10px 1%;
+  padding: 1%;
+}
+
+.list
+{
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+     -webkit-flex-wrap: wrap !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+    overflow: hidden !important;
+}
+    .list__item
+    {
+        display: -webkit-flex !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        width:45% !important;
+        margin-right: 5%;
+        max-height: 500px;
+        justify-content:center;
+        -webkit-justify-content:center;
+        position:relative;
+    }
+    header{min-height:50px;}
+    .list__item > div {
+    padding-bottom: 20px;
+}
+/*Caymen Island Storage Page*/
+.faq-sublist > li{
+   list-style-type: square;
+   list-style-position: inside;
+}
+
+.imgbuilding{
+    margin-top: 0px;
+    max-width:300px;
+}
+
+.cms-store-gold-in-caymans .btn-mega{
+    margin-bottom: 15px;
+}
+
+
+@media (min-width:1200px){
+  .imgbuilding{
+      max-width:100%;
+  }
+}
+@media (min-width:1400px){
+  .imgbuilding{
+      max-width:300px;
+  }
+}
+@media (min-width:768px) and (max-width:1200px){
+  .imgbuilding{
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width:300px) and (max-width:480px){
+  .cms-store-gold-in-caymans .contact-no-skype{
+      font-size: 19px !important;
+  }
+}
+/*Cayman Island Page fix*/
+.cms-store-gold-in-caymans #outer h2 { text-transform: uppercase; font-size: 22px;}
+.cms-store-gold-in-caymans #outer p { padding: 10px 0px; font-size:17px; }

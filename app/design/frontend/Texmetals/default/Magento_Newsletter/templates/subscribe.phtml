@@ -1,0 +1,42 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="block newsletter">
+    <div class="title"><h3>Newsletter Signup</h3></div>
+    <div class="content">
+        <p>Sign Up for Our Newsletter to Receive Product Updates & Discounts</p>
+        <form class="form subscribe"
+            novalidate
+            action="<?php /* @escapeNotVerified */ echo $block->getFormActionUrl() ?>"
+            method="post"
+            data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+            id="newsletter-validate-detail">
+            <div class="field newsletter">
+                <div class="form-group input-control">
+                <button class="button" type="submit"><span class="icon-envelop"></span></button>
+                <input type="text" placeholder="Your E-mail..." class="form-control required-entry validate-email" name="email">
+            </div>
+            </div>
+            <div class="actions">
+                <button class="action subscribe primary" title="<?php /* @escapeNotVerified */ echo __('Subscribe') ?>" type="submit">
+                    <span><?php /* @escapeNotVerified */ echo __('Subscribe') ?></span>
+                </button>
+            </div>
+        </form>
+        <ul class="find-us">
+                            <li class="divider"><a href="https://www.facebook.com/texmetals" class="animate-scale" target="_blank"><span class="icon icon-facebook-3"></span></a></li>
+                            <li class="divider"><a href="https://twitter.com/texmetals" class="animate-scale" target="_blank"><span class="icon icon-twitter-3"></span></a></li>
+                            <li class="divider"><a href="https://plus.google.com/+Texmetals/" class="animate-scale" target="_blank"><span class="icon icon-googleplus-2"></span></a></li>
+                           <li class="divider"><a href="http://vimeo.com/texmetals" class="animate-scale" target="_blank"><span class="icon icon-vimeo-3"></span></a></li>
+                            <li class="divider"><a href="https://www.youtube.com/user/TexMetals" class="animate-scale" target="_blank"><span class="icon icon-youtube-3"></span></a></li>
+                            <li class="divider"><a href="http://en.wikipedia.org/wiki/Texas_Precious_Metals" class="animate-scale" target="_blank"><span class="icon icon-wiki"></span></a></li>
+                            
+                        </ul>
+    </div>
+</div>

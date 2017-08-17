@@ -1,0 +1,53 @@
+<?php
+/**
+ * Category
+ *
+ * @var $block \Magento\Catelog\Block\Category\View
+ */
+?>
+
+<?php
+
+$categoryId = 76;
+$_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$category = $_objectManager->create('Magento\Catalog\Model\Category')->load($categoryId);
+$cat_url = $category->getUrl();
+$subcats = $category->getChildrenCategories();
+$current_category = $this->getCurrentCategory();
+$current_name = $current_category->getName();
+$current_id = $current_category->getId();
+
+?>
+
+<div class="page-title-content">
+	<div class="main-category">
+		<div class="child-category">
+			<?php if ($current_id == 76): ?>
+				<a href="<?php echo $cat_url; ?>">
+					<p class="current"><?php /* @escapeNotVerified */ echo __('All') ?></p>
+				</a>
+			<?php else: ?>
+				<a href="<?php echo $cat_url; ?>">
+					<p><?php /* @escapeNotVerified */ echo __('All') ?></p>
+				</a>
+			<?php endif ?>
+			<?php foreach ($subcats as $subcat) : ?>
+				<?php if ($subcat->getIsActive()) : ?>
+				<?php $subcat_url = $subcat->getUrl(); ?>
+				<?php $name_subcat= $subcat->getName(); ?>
+					<?php if ($current_name == $name_subcat): ?>
+					<a href="<?php echo $subcat_url; ?>">
+						<p class="current"><?php echo $name_subcat; ?></p>
+					</a>
+					<?php else: ?>
+					<a href="<?php echo $subcat_url; ?>">
+						<p><?php echo $name_subcat; ?></p>
+					</a>
+					<?php endif ?>
+				<?php endif ?>
+			<?php endforeach ?>
+		</div>
+	</div>
+</div>
+
+

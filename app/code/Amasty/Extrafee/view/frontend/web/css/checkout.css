@@ -1,0 +1,13 @@
+.amasty-extrafee-opc-block-fees .title{
+    font-weight: bold;
+}
+
+.amasty-extrafee-opc-block-fees .field .radio{
+    float: left;
+}
+
+.amasty-extrafee-opc-block-fees .field .radio + .label{
+    display: block;
+    margin: 0;
+    overflow: hidden;
+}

@@ -1,0 +1,75 @@
+
+<?php $posts = $this->getHomepagePosts() ?>
+<?php if (count($posts) > 0): ?>
+<div class="news-wrapper">
+  <div class="news-content">
+
+    <div class="left-news">
+      <h3>Recent News</h3>
+      <ul class="news-flash">
+        <?php $numb = 1; ?>
+        <?php foreach($posts as $post): ?>
+        <?php if ($renderedPostHtml = $this->renderPost($post)): ?>
+          <li class="news-title">
+            <a href="#news-<?php echo $numb; ?>">
+            <div class="date-news">
+              <h5><?php echo date('d', strtotime($post->getPostDate())) ?></h5>
+              <p><?php echo date('M', strtotime($post->getPostDate())); ?></p>
+            </div>
+            <div class="headline">
+              <h3><?php echo $this->escapeHtml($post->getPostTitle()) ?></h3>
+              <p><?php echo $post->getPostDate(); ?></p>
+            </div>
+            </a>
+          </li>
+        <?php endif; ?>
+        <?php $numb++; ?>
+        <?php endforeach; ?>
+      </ul>
+    <?php echo $this->getPagerHtml() ?>
+    </div>
+
+    <div class="right-news">
+      <div class="news-preview">
+        <?php $numb_article = 1; ?>
+        <?php foreach($posts as $post): ?>
+          <div class="news-item" id="news-<?php echo $numb_article; ?>">
+        <?php if ($renderedPostHtml = $this->renderPost($post)): ?>
+          <?php if ($featuredImage = $post->getImage()): ?>
+            <a href="<?php echo $post->getUrl() ?>" title="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"><img src="<?php echo $featuredImage->getFullSizeImage() ?>" alt="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"/></a>
+        <?php endif; ?>
+          <div class="news-details">
+            <div class="details-title">
+              <a href="<?php echo $post->getUrl() ?>" title="<?php echo $this->escapeHtml($post->getPostTitle()) ?>">
+                <h3><?php echo $this->escapeHtml($post->getPostTitle()) ?></h3>
+              </a>
+            </div>
+            <div class="details-content">
+              <?php 
+                $content = $post->getPostContent();
+                $content = preg_replace("/<img[^>]+\>/i", "", $content);
+                $url = $post->getUrl(); 
+                if (strlen($content) > 350) {
+                  $stringCut = substr($content, 0, 350);
+                  $content = substr($stringCut, 0, strrpos($stringCut, ' '))."<br /><a href='".$url."'> more...</a>";
+                }
+              ?>
+              <p><?php echo $content ?></p>
+            </div>
+          </div>
+        <?php endif; ?>
+        </div>
+        <?php $numb_article++; ?>
+        <?php endforeach; ?>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<?php else: ?>
+  <div class="news-wrapper">
+    <div class="news-content">
+      <p class="note-msg"><?php echo __('There are no posts matching your selection.') ?>
+    </div>
+  </div>
+<?php endif; ?>

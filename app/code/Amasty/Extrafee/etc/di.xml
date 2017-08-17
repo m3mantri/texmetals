@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
+ * @package Amasty_Extrafee
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\Extrafee\Api\FeeRepositoryInterface" type="Amasty\Extrafee\Model\FeeRepository" />
+    <preference for="Amasty\Extrafee\Api\Data\FeeSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+
+    <preference for="Amasty\Extrafee\Api\Data\FeeInterface"
+                type="Amasty\Extrafee\Model\Fee" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amasty_extrafee_listing_data_source" xsi:type="string">Amasty\Extrafee\Model\ResourceModel\Fee\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Amasty\Extrafee\Api\Data\FeeInterface" xsi:type="string">Amasty\Extrafee\Api\FeeRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Amasty\Extrafee\Api\Data\FeeInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">amasty_extrafee</item>
+                    <item name="identifierField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="Amasty\Extrafee\Api\Data\TotalsInformationInterface"
+                type="Amasty\Extrafee\Model\TotalsInformation" />
+
+    <preference for="Amasty\Extrafee\Api\GuestTotalsInformationManagementInterface"
+                type="Amasty\Extrafee\Model\GuestTotalsInformationManagement" />
+
+    <preference for="Amasty\Extrafee\Api\TotalsInformationManagementInterface"
+                type="Amasty\Extrafee\Model\TotalsInformationManagement" />
+
+    <preference for="Amasty\Extrafee\Api\FeesInformationManagementInterface"
+                type="Amasty\Extrafee\Model\FeesInformationManagement" />
+
+    <preference for="Amasty\Extrafee\Api\GuestFeesInformationManagementInterface"
+                type="Amasty\Extrafee\Model\GuestFeesInformationManagement" />
+
+    <preference for="Amasty\Extrafee\Api\Data\FeesManagerInterface"
+                type="Amasty\Extrafee\Model\Data\FeesManager" />
+
+    <type name="Amasty\Extrafee\Model\ResourceModel\Fee\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_extrafee</argument>
+            <argument name="eventPrefix" xsi:type="string">amasty_extrafee_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">amasty_extrafee_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Extrafee\Model\ResourceModel\Fee</argument>
+        </arguments>
+    </type>
+</config>
