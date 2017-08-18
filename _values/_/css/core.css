@@ -1,0 +1,117 @@
+/*- self-clearing floats ----------*/
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+* {
+	font-family: sans-serif;
+}
+body {
+	background-color: #b54022;
+}
+body > header, body > div, body > footer {
+	width: 800px;
+	margin: 0 auto;
+}
+body > div > section {
+	min-height: 400px;
+	background-color: #eee;
+	padding: 10px;
+}
+body > div > header {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 2em;
+	color: #ccc;
+	background-color: #999;
+}
+body > div > footer {
+	height: 50px;
+	color: #ccc;
+	background-color: #999;
+}
+
+
+section label {
+	margin-top: 4px;
+	font-size: .8em;
+}
+
+footer {
+	text-align: center;
+}
+.product {
+	min-height:auto;
+	clear: both;
+	border-bottom: 2px solid #ccc;
+	padding: 5px 0;
+	position: relative;
+}
+.product > img {
+	height:90px;
+	float: left;
+	margin: 5px 10px;
+}
+.product > strong {
+	display: block;
+	font-size: 1.5em;
+	padding: 10px 10px 0 5px;
+}
+.product > em {
+	display: block;
+	padding-top: 6px;
+}
+.product > .alert {
+	display: block;
+	font-size: .9em;
+	padding-top: 10px;
+	color: #f00;
+}
+.product .show {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	z-index: 0;
+	border-width: 0 0 5px 0;
+	border-style: double;
+}
+.product:hover fieldset {
+	visibility: visible;
+}
+.product fieldset {
+	z-index: 1;
+	visibility: hidden;
+	position: absolute;
+	right: 0;
+	font-size: .8em;
+	border: 1px solid #ccc;
+	padding: 5px;
+	background: #e5e5e5;
+}
+.product fieldset legend {
+	padding: 0 5px;
+}
+.product fieldset label {
+	float: left;
+	clear: left;
+	display: block;
+	width: 70px;
+}
+.product fieldset label + input {
+	float: left;
+	clear: right;
+	width: 100px;
+}
+.product fieldset .row {
+	width: 180px;
+	padding: 0 2px;
+}
+.product fieldset .row:hover {
+	background: #ccc;
+}
