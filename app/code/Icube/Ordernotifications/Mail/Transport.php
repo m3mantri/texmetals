@@ -52,11 +52,12 @@ class Transport extends \Zend_Mail_Transport_Sendmail implements \Magento\Framew
         $ordernotifications->setCreatedAt(date('c'));
         $ordernotifications->save();
         
-         try {
+        if(!$this->_scopeConfig->getValue('system/smtp/disable',\Magento\Store\Model\ScopeInterface::SCOPE_STORE)){
+            try {
                 parent::send($this->_message);
             } catch (\Exception $e) {
                 throw new \Magento\Framework\Exception\MailException(new \Magento\Framework\Phrase($e->getMessage()), $e);
             }
-        
+        }
     }
 }

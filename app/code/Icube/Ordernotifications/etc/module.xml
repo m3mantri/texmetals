@@ -3,7 +3,6 @@
 	<module name="Icube_Ordernotifications" setup_version="1.0.0">
 		<sequence>
 			<module name="Magento_Email"/>
-			<module name="Magento_Customer"/>
 		</sequence>
 	</module>
 </config>
