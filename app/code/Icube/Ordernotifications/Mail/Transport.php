@@ -44,20 +44,21 @@ class Transport extends \Zend_Mail_Transport_Sendmail implements \Magento\Framew
     {
         
         $ordernotifications = $this->_ordernotifications->create();
-        
-        $ordernotifications->setBody($this->_message->getBody()->getRawContent());
-        $ordernotifications->setSubject($this->_message->getSubject());
-        $ordernotifications->setTo(implode(',',$this->_message->getRecipients()));
-        $ordernotifications->setFrom($this->_message->getFrom());
-        $ordernotifications->setCreatedAt(date('c'));
-        $ordernotifications->save();
-        
-        if(!$this->_scopeConfig->getValue('system/smtp/disable',\Magento\Store\Model\ScopeInterface::SCOPE_STORE)){
+		if(strpos(strtolower($this->_message->getSubject()),"order") !== false)
+		{
+			$ordernotifications->setBody($this->_message->getBody()->getRawContent());
+			$ordernotifications->setSubject($this->_message->getSubject());
+			$ordernotifications->setTo(implode(',',$this->_message->getRecipients()));
+			$ordernotifications->setFrom($this->_message->getFrom());
+			$ordernotifications->setCreatedAt(date('c'));
+			$ordernotifications->save();
+        }
+        //if(!$this->_scopeConfig->getValue('system/smtp/disable',\Magento\Store\Model\ScopeInterface::SCOPE_STORE)){
             try {
                 parent::send($this->_message);
             } catch (\Exception $e) {
                 throw new \Magento\Framework\Exception\MailException(new \Magento\Framework\Phrase($e->getMessage()), $e);
             }
-        }
+       // }
     }
 }

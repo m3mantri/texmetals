@@ -1,1 +1,32 @@
-<?php echo $block->getTitle(); ?>
+<div class="simplenews">
+   <?php
+      $newsCollection = $block->getCollection();
+      if ($newsCollection->getSize() > 0) :
+   ?>
+      <div class="toolbar top">
+         <?php echo $block->getPagerHtml(); ?>
+      </div>
+ 
+      <ul>
+         <?php foreach ($newsCollection as $news) : ?>
+            <li>
+               <div class="simplenews-list">
+                  <a class="news-title" href="<?php echo $this->getUrl('ordernotifications/index/index',
+ ['id' => $news->getOrdernotificationsId()]) ?>"><?php echo $news->getSubject() ?></a>
+                  
+               </div>
+            </li>
+         <?php endforeach; ?>
+      </ul>
+ 
+      <div style="clear: both"></div>
+ 
+      <div class="toolbar-bottom">
+         <div class="toolbar bottom">
+            <?php echo $block->getPagerHtml(); ?>
+         </div>
+      </div>
+   <?php else : ?>
+      <p><?php echo __('Have no mails!') ?></p>
+   <?php endif; ?>
+</div>
