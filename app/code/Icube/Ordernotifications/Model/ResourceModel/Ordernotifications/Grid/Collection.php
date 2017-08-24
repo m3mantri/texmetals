@@ -1,7 +1,6 @@
 <?php
 /**
  * A Magento 2 module named Icube/Ordernotifications
- * Copyright (C) 2016 Derrick Heesbeen
  *
  * This file included in Icube/Ordernotifications is licensed under OSL 3.0
  *
