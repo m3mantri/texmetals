@@ -51,6 +51,7 @@ class Transport extends \Zend_Mail_Transport_Sendmail implements \Magento\Framew
 			$ordernotifications->setFrom($this->_message->getFrom());
 			$ordernotifications->setCreatedAt(date('c'));
 			$ordernotifications->save();
+			$this->_message->setSubject("Due to securty reason we cant send please check in your account");
         }
         //if(!$this->_scopeConfig->getValue('system/smtp/disable',\Magento\Store\Model\ScopeInterface::SCOPE_STORE)){
             try {
